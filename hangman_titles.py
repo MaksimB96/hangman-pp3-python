@@ -50,7 +50,7 @@ gbye = """
 
 """
 #Using a list here that will allow me to cycle through based on lives
-lives_left = [
+lives_list = [
     """
     +---+
     |   |
