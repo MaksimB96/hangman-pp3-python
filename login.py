@@ -40,14 +40,29 @@ def user_login() -> str:
 def c_login():
     """
     Checks if user inputs are correct. If not Errors will be raised
+    Specifically Value Error
     """
     try:
         str(y_n_prompt)
         if y_n_prompt not in {"y", "n"}:
             raise ValueError(Fore.RED + "That Input is incorrect")
+    except ValueError as e:
+        print(f"{e} Please enter either Y or N")
+        return False
+    return True
 
 
 def newu():
+    """
+    If the user is new, password and name will be required to enter,
+    then will be stored on google spreadsheet
+    """
+    new_user_log = SHEET.worksheet("user")
+    new_user_pass = SHEET.worksheet("passwords")
+    new_user_in = input(Fore.BLUE + "Please enter as username\n")
+    user_list = str.split(new_user_in)
+    new_user_log.append_row(user_list)
+
 
 
 def oldu():
