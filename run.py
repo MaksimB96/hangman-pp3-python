@@ -1,5 +1,8 @@
 import colorama
 import random
+import login
+import gspread
+from google.oauth2.service_account import Credentials
 from colorama import Fore
 from hangman_titles import title, gbye, gover, lives_list
 

@@ -23,9 +23,9 @@ def user_login() -> str:
      """
 
      while True:
-        print(Fore.BLUE + '~~~~~~~~~~~~~~~~~~~~~')
-        print('Welcome to Hangman!')
-        print(Fore.BLUE + '~~~~~~~~~~~~~~~~~~~~~')
+        print(Fore.BLUE + '~~~~~~~~~~~~~~~~~~~')
+        print(Fore.BLUE + 'Welcome to Hangman!')
+        print(Fore.BLUE + '~~~~~~~~~~~~~~~~~~~')
         y_n_prompt = input(Back.GREEN + "Are you a new user? Y/N").lower()
 
         if str(y_n_prompt) == y:
