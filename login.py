@@ -89,6 +89,20 @@ def oldu():
     if info_check_name is None:
         print(Fore.RED + "This username does not exist! Please try again...")
         user_login() 
+    else:
+        print(Fore.YELLOW + f"Welcome back {old_user_in}!")
+
+    #Password segment for returning users
+    old_pass_in = input(Fore.BLUE + "Please enter your password\n")
+    info_check_pass = new_user_pass.find(old_pass_in)
+
+    #If password not found user login function will be called
+    if old_pass_in is None:
+        print(Fore.RED + "Password incorrect! Please try again...")
+        user_login()
+    else:
+        print(Fore.YELLOW + "Password is correct!")
+
 
 
 
