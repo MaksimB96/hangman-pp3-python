@@ -38,6 +38,14 @@ def generate_word():
     r_word = random.choice(open('rand-word.py', 'r').read().split('\n'))
     return r_word
 
+def loser():
+    """
+    Prints art for game over
+    """
+    print(Fore.RED + gover)
+
+
+
 
 # def main():
 #     y_n_prompt = login.user_login()
