@@ -38,6 +38,13 @@ def user_login() -> str:
         return y_n_prompt
 
 def c_login():
+    """
+    Checks if user inputs are correct. If not Errors will be raised
+    """
+    try:
+        str(y_n_prompt)
+        if y_n_prompt not in {"y", "n"}:
+            raise ValueError(Fore.RED + "That Input is incorrect")
 
 
 def newu():
