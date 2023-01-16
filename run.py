@@ -3,7 +3,7 @@ import random
 import login
 import gspread
 from google.oauth2.service_account import Credentials
-from colorama import Fore
+from colorama import Fore, Back
 from hangman_titles import title, gbye, gover, lives_list
 
 SCOPE = [
@@ -24,7 +24,7 @@ def title_intro():
     Intro art and basic run down of how to play
     '''
 
-    print(Fore.GREEN + title)
+    print(Fore.LIGHTGREEN_EX + title)
    
     print('The aim of the game is to guess a word letter by letter\n')
     print('For each incorrect letter guess you will lose a life (7 in total) so choose carefully!\n')

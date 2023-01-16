@@ -73,7 +73,7 @@ def newu():
     new_pass_in = input(Fore.BLUE + "Please enter a password\n")
     pass_list = str.split(new_pass_in)
     new_user_pass.append_row(pass_list)
-    print(Fore.YELLOW + "Password Saved!")
+    print(Fore.YELLOW + "Password Saved! Enjoy the game!")
 
 
 def oldu():
@@ -86,7 +86,7 @@ def oldu():
     new_user_pass = SHEET.worksheet("passwords")
 
     #Old username prompt
-    old_user_in = input(Fore.BLUE + "Please enter your username\n")
+    old_user_in = input("Please enter your username\n")
     info_check_name = new_user_log.find(old_user_in)
 
     #If username not found user login function will be called
@@ -97,7 +97,7 @@ def oldu():
         print(Fore.YELLOW + f"Welcome back {old_user_in}!")
 
     #Password segment for returning users
-    old_pass_in = input(Fore.BLUE + "Please enter your password\n")
+    old_pass_in = input("Please enter your password\n")
     info_check_pass = new_user_pass.find(old_pass_in)
 
     #If password not found user login function will be called
@@ -105,5 +105,5 @@ def oldu():
         print(Fore.RED + "Password incorrect! Please try again...")
         user_login()
     else:
-        print(Fore.YELLOW + "Password is correct!")
+        print(Fore.YELLOW + "Password is correct! Enjoy the game!")
 
