@@ -30,6 +30,7 @@ def title_intro():
     print('For each incorrect letter guess you will lose a life (7 in total) so choose carefully!\n')
     print('If you run out of lives and or complete a game you can restart by pressing either "Y" or "N" when prompted\n')
 
+
 def generate_word():
     """
     This function will generate a word at random based on the list
@@ -37,6 +38,13 @@ def generate_word():
     """
     r_word = random.choice(open('rand-word.py', 'r').read().split('\n'))
     return r_word
+
+
+def winner():
+    """
+    Prints a simple congratulations for guessing the word
+    """
+    print(Fore.YELLOW + "CONGRATULATIONS THAT YOU GUESSED THE WORD!")
 
 def loser():
     """
