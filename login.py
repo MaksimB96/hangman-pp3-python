@@ -18,11 +18,11 @@ SHEET = GSPREAD_CLIENT.open('p_users')
 
 
 def user_login() -> str:
-     """
-     This function will help determine if a user is new or returning
-     If new, the user will be set up, otherwise a login will be asked
-     """
-     while True:
+    """
+    This function will help determine if a user is new or returning
+    If new, the user will be set up, otherwise a login will be asked
+    """
+    while True:
         print(Fore.BLUE + '~~~~~~~~~~~~~~~~~~~')
         print(Fore.BLUE + 'Welcome to Hangman!')
         print(Fore.BLUE + '~~~~~~~~~~~~~~~~~~~')
@@ -36,10 +36,10 @@ def user_login() -> str:
         if c_login(y_n_prompt):
             break
 
-        return y_n_prompt
+    return y_n_prompt
 
 
-def c_login():
+def c_login(y_n_prompt: str):
     """
     Checks if user inputs are correct. If not Errors will be raised
     Specifically Value Error
@@ -48,6 +48,7 @@ def c_login():
         str(y_n_prompt)
         if y_n_prompt not in {"y", "n"}:
             raise ValueError(Fore.RED + "That Input is incorrect")
+
     except ValueError as e:
         print(Fore.RED + f"{e} Please enter either Y or N")
         return False
