@@ -30,6 +30,11 @@ def title_intro():
     print('For each incorrect letter guess you will lose a life (7 in total) so choose carefully!\n')
     print('If you run out of lives and or complete a game you can restart by pressing either "Y" or "N" when prompted\n')
 
-title_intro()
 
+def main():
+    y_n_prompt = login.user_login()
+    login.c_login(y_n_prompt)
+    title_intro()
+    
 
+main()

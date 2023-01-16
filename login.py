@@ -1,4 +1,5 @@
 #imports to access my sheet
+import random
 import gspread
 from google.oauth2.service_account import Credentials
 from colorama import Fore, Back
@@ -21,21 +22,22 @@ def user_login() -> str:
      This function will help determine if a user is new or returning
      If new, the user will be set up, otherwise a login will be asked
      """
-
      while True:
         print(Fore.BLUE + '~~~~~~~~~~~~~~~~~~~')
         print(Fore.BLUE + 'Welcome to Hangman!')
         print(Fore.BLUE + '~~~~~~~~~~~~~~~~~~~')
-        y_n_prompt = input(Back.GREEN + "Are you a new user? Y/N").lower()
+        y_n_prompt = input("Are you a new user? Y/N\n").lower()
 
-        if str(y_n_prompt) == y:
+        if str(y_n_prompt) == "y":
             newu()
-        elif str(y_n_prompt) == n:
+        elif str(y_n_prompt) == "n":
             oldu()
 
         if c_login(y_n_prompt):
             break
+
         return y_n_prompt
+
 
 def c_login():
     """
@@ -47,8 +49,9 @@ def c_login():
         if y_n_prompt not in {"y", "n"}:
             raise ValueError(Fore.RED + "That Input is incorrect")
     except ValueError as e:
-        print(f"{e} Please enter either Y or N")
+        print(Fore.RED + f"{e} Please enter either Y or N")
         return False
+    
     return True
 
 
@@ -58,7 +61,7 @@ def newu():
     then will be stored on google spreadsheet
     """
     #New user segment
-    new_user_log = SHEET.worksheet("user")
+    new_user_log = SHEET.worksheet("users")
     new_user_pass = SHEET.worksheet("passwords")
     new_user_in = input(Fore.BLUE + "Please enter a username\n")
     user_list = str.split(new_user_in)
@@ -69,7 +72,7 @@ def newu():
     new_pass_in = input(Fore.BLUE + "Please enter a password\n")
     pass_list = str.split(new_pass_in)
     new_user_pass.append_row(pass_list)
-    print(FORE.YELLOW + "Password Saved!")
+    print(Fore.YELLOW + "Password Saved!")
 
 
 def oldu():
@@ -78,7 +81,7 @@ def oldu():
     that they previously have inputed if they were a new user. If The 
     info provided is false, they'll need to restart. 
     """
-    new_user_log = SHEET.worksheet("user")
+    new_user_log = SHEET.worksheet("users")
     new_user_pass = SHEET.worksheet("passwords")
 
     #Old username prompt
