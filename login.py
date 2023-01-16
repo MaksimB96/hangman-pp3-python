@@ -57,11 +57,20 @@ def newu():
     If the user is new, password and name will be required to enter,
     then will be stored on google spreadsheet
     """
+    #New user segment
     new_user_log = SHEET.worksheet("user")
     new_user_pass = SHEET.worksheet("passwords")
-    new_user_in = input(Fore.BLUE + "Please enter as username\n")
+    new_user_in = input(Fore.BLUE + "Please enter a username\n")
     user_list = str.split(new_user_in)
     new_user_log.append_row(user_list)
+    print(Fore.YELLOW + f"Welcome {new_user_in}")
+
+    #Password segment
+    new_pass_in = input(Fore.BLUE + "Please enter a password\n")
+    pass_list = str.split(new_pass_in)
+    new_user_pass.append_row(pass_list)
+    print(FORE.YELLOW + "Password Saved!")
+
 
 
 
