@@ -1,7 +1,7 @@
 import colorama
 import random
 from colorama import Fore
-from hangman_titles import title
+from hangman_titles import title, gbye, gover, lives_list
 
 colorama.init(autoreset = True)
 
