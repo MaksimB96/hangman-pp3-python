@@ -12,11 +12,13 @@ SCOPE = [
     ]
 
 CREDS = Credentials.from_service_account_file('creds.json') 
-SCOPED_CREDS = CREDS.with_scopes(CREDS)
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('passwords-users')
+SHEET = GSPREAD_CLIENT.open('p_users')
 
+username = SHEET.worksheet('pw')
 
+print(username)
 # colorama.init(autoreset = True)
 
 # def title_intro():
