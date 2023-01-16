@@ -101,14 +101,9 @@ def oldu():
     info_check_pass = new_user_pass.find(old_pass_in)
 
     #If password not found user login function will be called
-    if old_pass_in is None:
+    if info_check_pass is None:
         print(Fore.RED + "Password incorrect! Please try again...")
         user_login()
     else:
         print(Fore.YELLOW + "Password is correct!")
 
-
-
-
-
-    
