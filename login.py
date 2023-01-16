@@ -72,9 +72,25 @@ def newu():
     print(FORE.YELLOW + "Password Saved!")
 
 
-
-
 def oldu():
+    """
+    If user is returning, They will be prompted to enter their details
+    that they previously have inputed if they were a new user. If The 
+    info provided is false, they'll need to restart. 
+    """
+    new_user_log = SHEET.worksheet("user")
+    new_user_pass = SHEET.worksheet("passwords")
+
+    #Old username prompt
+    old_user_in = input(Fore.BLUE + "Please enter your username\n")
+    info_check_name = new_user_log.find(old_user_in)
+
+    #If username not found user login function will be called
+    if info_check_name is None:
+        print(Fore.RED + "This username does not exist! Please try again...")
+        user_login() 
+
+
 
 
     
