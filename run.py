@@ -1,31 +1,21 @@
 import colorama
-import gspread
 import random
 from colorama import Fore
-from google.oauth2.service_account import Credentials
 from hangman_titles import title
 
-SCOPE = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-    ]
+colorama.init(autoreset = True)
 
-CREDS = Credentials.from_service_account_file('creds.json') 
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('p_users')
+def title_intro():
+    '''
+    Intro art and basic run down of how to play
+    '''
 
-username = SHEET.worksheet('pw')
+    print(Fore.GREEN + title)
+    print('Welcome to hangman!\n')
+    print('The aim of the game is to guess a word letter by letter\n')
+    print('For each incorrect letter guess you will lose a life (7 in total) so choose carefully!\n')
+    print('If you run out of lives and or complete a game you can restart by pressing either "Y" or "N" when prompted\n')
 
-print(username)
-# colorama.init(autoreset = True)
+title_intro()
 
-# def title_intro():
-#     '''
-#     Intro art and basic run down of how to play
-#     '''
-
-#     print(Fore.GREEN + title)
-#     print('Welcome to hangman!')
 
