@@ -41,6 +41,21 @@ game_complete = False
 
 print(show)
 
+while game_complete == False and lives > 0:
+    uguess = input(Fore.GREEN + "This the part where you guess a letter\n")
+    uguess = uguess.upper()
+
+    if uguess == choices:
+        game_complete = True
+    else:
+        lives -= 1
+
+if game_complete:
+    print(Fore.YELLOW + "Congratulations, your guessing skills are most impressive")
+else:
+    print(Fore.RED + gover)
+    print(Fore.RED + "The word was:", choices)
+
 # def title_intro():
 #     '''
 #     Intro art and basic run down of how to play
