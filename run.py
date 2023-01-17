@@ -16,7 +16,7 @@ from rand_word import word_choice
 #imported specific aspects for data handle, color and titles
 from google.oauth2.service_account import Credentials
 from colorama import Fore, Back
-from hangman_titles import title, gbye, gover, lives_list
+from hangman_titles import title, gbye, gover, hangman_lives_dict
 
 #scope used for data handling - credit love sandwich
 SCOPE = [
@@ -57,6 +57,8 @@ def show_stats():
     '''
     Shows the status of your word
     '''
+    os.system('clear')
+    print(hangman_lives_dict[7-lives])
     print(show)
 
 while game_complete == False and lives > 0:
