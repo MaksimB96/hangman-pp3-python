@@ -1,3 +1,4 @@
+word_choice ="""
 demonstration
 motorcycle
 trip
@@ -98,3 +99,4 @@ recruit
 night
 occasion
 reach
+""".split()
