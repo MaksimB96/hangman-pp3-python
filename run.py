@@ -11,7 +11,7 @@ import login
 import gspread
 
 #rand-word.py list imported to be utilised in game
-import rand-word
+from rand_word import word_choice
 
 #imported specific aspects for data handle, color and titles
 from google.oauth2.service_account import Credentials
@@ -33,42 +33,46 @@ SHEET = GSPREAD_CLIENT.open('p_users')
 #colorama init used as per colorama manual - see readme
 colorama.init(autoreset = True)
 
-choice = 
+#basic set variables to be used in functions 
+choices = random.choice(word_choice).upper()
 lives = 7
+show = list(len(choices)*'_')
 game_complete = False
 
-def title_intro():
-    '''
-    Intro art and basic run down of how to play
-    '''
+print(show)
 
-    print(Fore.LIGHTGREEN_EX + title)
+# def title_intro():
+#     '''
+#     Intro art and basic run down of how to play
+#     '''
+
+#     print(Fore.LIGHTGREEN_EX + title)
    
-    print('The aim of the game is to guess a word letter by letter\n')
-    print('For each incorrect letter guess you will lose a life (7 in total) so choose carefully!\n')
-    print('If you run out of lives and or complete a game you can restart by pressing either "Y" or "N" when prompted\n')
+#     print('The aim of the game is to guess a word letter by letter\n')
+#     print('For each incorrect letter guess you will lose a life (7 in total) so choose carefully!\n')
+#     print('If you run out of lives and or complete a game you can restart by pressing either "Y" or "N" when prompted\n')
 
 
 
-# def winner():
-#     """
-#     Prints a simple congratulations for guessing the word
-#     """
-#     print(Fore.YELLOW + "CONGRATULATIONS THAT YOU GUESSED THE WORD!")
+# # def winner():
+# #     """
+# #     Prints a simple congratulations for guessing the word
+# #     """
+# #     print(Fore.YELLOW + "CONGRATULATIONS THAT YOU GUESSED THE WORD!")
 
-# def loser():
-#     """
-#     Prints art for game over
-#     """
-#     print(Fore.RED + gover)
-
-
+# # def loser():
+# #     """
+# #     Prints art for game over
+# #     """
+# #     print(Fore.RED + gover)
 
 
-# def main():
-#     y_n_prompt = login.user_login()
-#     login.c_login(y_n_prompt)
-#     title_intro()
+
+
+# # def main():
+# #     y_n_prompt = login.user_login()
+# #     login.c_login(y_n_prompt)
+# #     title_intro()
     
 
-# main()
+# # main()
