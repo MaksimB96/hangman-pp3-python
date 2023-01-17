@@ -1,4 +1,4 @@
-word_choice ="""
+word_choice = """
 demonstration
 motorcycle
 trip
@@ -99,4 +99,5 @@ recruit
 night
 occasion
 reach
-""".split()
+""".split() 
+# saves time instead of making a list

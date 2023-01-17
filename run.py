@@ -1,11 +1,24 @@
+#colorama used for more color variation 
 import colorama
+
+#random and os used for random functionality and os for clear screen 
 import random, os
+
+#login.py imported for user integration
 import login
+
+#gspread used for spreadsheet data handling
 import gspread
+
+#rand-word.py list imported to be utilised in game
+import rand-word
+
+#imported specific aspects for data handle, color and titles
 from google.oauth2.service_account import Credentials
 from colorama import Fore, Back
 from hangman_titles import title, gbye, gover, lives_list
 
+#scope used for data handling - credit love sandwich
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -17,7 +30,12 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('p_users')
 
+#colorama init used as per colorama manual - see readme
 colorama.init(autoreset = True)
+
+choice = 
+lives = 7
+game_complete = False
 
 def title_intro():
     '''
@@ -30,14 +48,6 @@ def title_intro():
     print('For each incorrect letter guess you will lose a life (7 in total) so choose carefully!\n')
     print('If you run out of lives and or complete a game you can restart by pressing either "Y" or "N" when prompted\n')
 
-
-# def generate_word():
-#     """
-#     This function will generate a word at random based on the list
-#     in rand-word.py
-#     """
-#     r_word = random.choice(open('rand-word.py', 'r').read().split('\n'))
-#     return r_word
 
 
 # def winner():
