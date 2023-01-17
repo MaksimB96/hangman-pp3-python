@@ -60,9 +60,10 @@ def show_stats():
     os.system('clear')
     print(hangman_lives_dict[7-lives])
     print(show)
+    print(Fore.RED + "You've lost a life, careful you now only have",lives,"left!")
 
 while game_complete == False and lives > 0:
-    show_hangman()
+    show_stats()
     uguess = input(Fore.GREEN + "This the part where you guess a letter\n")
     uguess = uguess.upper()
 
@@ -74,7 +75,7 @@ while game_complete == False and lives > 0:
 
     else:
         lives -= 1
-    show_stats()()
+    show_stats()
 
 if game_complete:
     print(Fore.YELLOW + "Congratulations, your guessing skills are most impressive")
