@@ -39,6 +39,20 @@ lives = 7
 show = list(len(choices)*'_')
 game_complete = False
 
+def c_letter(digit, choices):
+    '''
+    This functions checks if a specific letter is in random word
+    '''
+    global show
+    for i in range(0, len(choices)):
+        digit = choices[i]
+        if uguess == digit:
+            show[i] = uguess
+    if '_' not in show:
+        return True
+    else:
+        return False
+
 
 
 while game_complete == False and lives > 0:
