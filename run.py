@@ -39,14 +39,23 @@ lives = 7
 show = list(len(choices)*'_')
 game_complete = False
 
-print(show)
+
 
 while game_complete == False and lives > 0:
+    print(show)
     uguess = input(Fore.GREEN + "This the part where you guess a letter\n")
     uguess = uguess.upper()
 
     if uguess == choices:
         game_complete = True
+    if len(uguess) == 1 and uguess in choices:
+        for i in range(0, len(choices)):
+            digit = choices[i]
+            if uguess == digit:
+                show[i] = uguess
+        if '_' not in show:
+            game_complete = True
+
     else:
         lives -= 1
 
