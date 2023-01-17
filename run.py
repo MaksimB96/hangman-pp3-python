@@ -60,28 +60,33 @@ def show_stats():
     os.system('clear')
     print(hangman_lives_dict[7-lives])
     print(show)
-    print(Fore.RED + "You've lost a life, careful you now only have",lives,"left!")
+    print(Fore.YELLOW + "You currently have",lives,"left!")
 
-while game_complete == False and lives > 0:
-    show_stats()
-    uguess = input(Fore.GREEN + "This the part where you guess a letter\n")
-    uguess = uguess.upper()
+def game_body():
+    '''
+    This function holds the majority of the functionality of hangman.
+    from lives lost to letters being shown to the end game.
+    '''
+    while game_complete == False and lives > 0:
+        show_stats()
+        uguess = input(Fore.GREEN + "This the part where you guess a letter\n")
+        uguess = uguess.upper()
 
-    if uguess == choices:
-        game_complete = True
-        show = choices
-    if len(uguess) == 1 and uguess in choices:
-        game_complete = c_letter(uguess, choices)
+        if uguess == choices:
+            game_complete = True
+            show = choices
+        if len(uguess) == 1 and uguess in choices:
+            game_complete = c_letter(uguess, choices)
 
+        else:
+            lives -= 1
+        show_stats()
+
+    if game_complete:
+        print(Fore.YELLOW + "Congratulations, your guessing skills are most impressive")
     else:
-        lives -= 1
-    show_stats()
-
-if game_complete:
-    print(Fore.YELLOW + "Congratulations, your guessing skills are most impressive")
-else:
-    print(Fore.RED + gover)
-    print(Fore.RED + "The word was:", choices)
+        print(Fore.RED + gover)
+        print(Fore.RED + "The word was:", choices)
 
 # def title_intro():
 #     '''
