@@ -53,25 +53,26 @@ def c_letter(digit, choices):
     else:
         return False
 
-
+def show_stats():
+    '''
+    Shows the status of your word
+    '''
+    print(show)
 
 while game_complete == False and lives > 0:
-    print(show)
+    show_hangman()
     uguess = input(Fore.GREEN + "This the part where you guess a letter\n")
     uguess = uguess.upper()
 
     if uguess == choices:
         game_complete = True
+        show = choices
     if len(uguess) == 1 and uguess in choices:
-        for i in range(0, len(choices)):
-            digit = choices[i]
-            if uguess == digit:
-                show[i] = uguess
-        if '_' not in show:
-            game_complete = True
+        game_complete = c_letter(uguess, choices)
 
     else:
         lives -= 1
+    show_stats()()
 
 if game_complete:
     print(Fore.YELLOW + "Congratulations, your guessing skills are most impressive")
