@@ -34,24 +34,26 @@ SHEET = GSPREAD_CLIENT.open('p_users')
 colorama.init(autoreset = True)
 
 #basic set variables to be used in functions 
-choices = random.choice(word_choice).upper()
-lives = 7
-show = list(len(choices)*'_')
-game_complete = False
+# choices = random.choice(word_choice).upper()
+# lives = 7
+# show = list(len(choices)*'_')
+# game_complete = False
 
-def c_letter(digit, choices):
-    '''
-    This functions checks if a specific letter is in random word
-    '''
-    global show
-    for i in range(0, len(choices)):
-        digit = choices[i]
-        if uguess == digit:
-            show[i] = uguess
-    if '_' not in show:
-        return True
-    else:
-        return False
+# def c_letter(digit, choices):
+#     '''
+#     This functions checks if a specific letter is in random word
+#     '''
+#     global show
+#     for i in range(0, len(choices)):
+#         digit = choices[i]
+#         if uguess == digit:
+#             show[i] = uguess
+#     if '_' not in show:
+#         return True
+#     else:
+#         return False
+
+
 
 def show_stats():
     '''
@@ -67,26 +69,52 @@ def game_body():
     This function holds the majority of the functionality of hangman.
     from lives lost to letters being shown to the end game.
     '''
+    choices = random.choice(word_choice).upper()
+    lives = 7
+    show = list(len(choices)*'_')
+    guessed_letter = []
+    game_complete = False
     while game_complete == False and lives > 0:
         show_stats()
-        uguess = input(Fore.GREEN + "This the part where you guess a letter\n")
+        uguess = input(Fore.GREEN + "Please enter a letter!\n")
         uguess = uguess.upper()
+        if len(uguess) == 1 and uguess.isalpha():
+            if uguess in guessed_letter:
+                print(Fore.RED + "You've already used",uguess,"! Be careful..")
+            elif uguess not in choices:
+                print(Fore.RED + uguess, "Is not in the word!")
 
-        if uguess == choices:
-            game_complete = True
-            show = choices
-        if len(uguess) == 1 and uguess in choices:
-            game_complete = c_letter(uguess, choices)
+        elif len(uguess) == len(choices) and uguess.isalpha():
 
         else:
-            lives -= 1
-        show_stats()
+            print(Fore.RED + "This is not a valid guess! Please try again...")
+            show_stats()
+        
 
-    if game_complete:
-        print(Fore.YELLOW + "Congratulations, your guessing skills are most impressive")
-    else:
-        print(Fore.RED + gover)
-        print(Fore.RED + "The word was:", choices)
+    #     if uguess == choices:
+    #         game_complete = True
+    #         show = choices
+    #     if len(uguess) == 1 and uguess in choices:
+    #         game_complete = c_letter(uguess, choices)
+
+    #     else:
+    #         lives -= 1
+    #     show_stats()
+
+    # if game_complete:
+    #     print(Fore.YELLOW + "Congratulations, your guessing skills are most impressive")
+    # else:
+    #     print(Fore.RED + gover)
+    #     print(Fore.RED + "The word was:", choices)
+
+# def game_restart():
+#     '''
+#     Allows user to restart the game 
+#     '''
+    
+
+
+
 
 # def title_intro():
 #     '''
@@ -100,26 +128,23 @@ def game_body():
 #     print('If you run out of lives and or complete a game you can restart by pressing either "Y" or "N" when prompted\n')
 
 
-
-# # def winner():
-# #     """
-# #     Prints a simple congratulations for guessing the word
-# #     """
-# #     print(Fore.YELLOW + "CONGRATULATIONS THAT YOU GUESSED THE WORD!")
-
-# # def loser():
-# #     """
-# #     Prints art for game over
-# #     """
-# #     print(Fore.RED + gover)
+# def loser():
+#     """
+#     Prints art for game over
+#     """
+#     print(Fore.RED + gover)
 
 
 
 
-# # def main():
-# #     y_n_prompt = login.user_login()
-# #     login.c_login(y_n_prompt)
-# #     title_intro()
+# def main():
+#     '''
+#     Calls on all major functions
+#     '''
+#     y_n_prompt = login.user_login()
+#     login.c_login(y_n_prompt)
+#     title_intro()
+#     game_body()
     
 
-# # main()
+# main()
