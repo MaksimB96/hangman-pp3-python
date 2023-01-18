@@ -65,22 +65,19 @@ def game_body(words):
     guessed letters and number"
     '''
     lives = 6
-    show_letter = '_' * len(words)
+    show_letter = list(len(words)*'_')
     guessed_letter = []
-    guessed_word = []
     guess_complete = False
-    title_intro()
-    print(hangman_lives(lives))
+    print(show_stats(lives))
     print(show_letter)
     print("\n")
 
     while not guess_complete and lives < 0:
-
-        uguess = input(Fore.GREEN + "Please enter a letter!\n")
+        uguess = input("Please enter a letter!\n")
 
         if len(uguess) == 1 and uguess.isalpha():         
             if uguess in guessed_letter:
-                print(Fore.RED + "You've already used", uguess, "! Be careful..")          
+                print(Fore.RED + "You've already used", uguess)
             elif uguess not in words:
                 print(Fore.RED + uguess, "Is not in the word!")
                 lives -= 1
@@ -89,38 +86,31 @@ def game_body(words):
                 print(Fore.YELLOW + uguess, "is in the word! Keep it up!")
                 guessed_letter.append(uguess)
                 show_letter_list = list(show_letter)
-
-                indicies = [i for i, letter in enumerate(show_letter)
-                            if letter == uguess]
+                indicies = [i for i, letter in enumerate(show_letter) if letter == uguess]
                 for index in indicies:
                     show_letter_list[index] = uguess
-
                 show_letter = "".join(show_letter_list)              
                 if "_" not in show_letter:
                     guess_complete = True
-
-        elif len(uguess) == len(words) and uguess.isalpha():        
-            if uguess in guessed_word:
-                print('You already guessed the word')          
-            elif uguess != show_letter:
+        elif len(uguess) == len(words) and uguess.isalpha():                 
+            if uguess != show_letter:
                 print(Fore.RED + uguess, "Is not the word!")
                 lives -= 1
-                guessed_word.append(uguess)         
             else:
                 guess_complete = True
                 show_letter = words
-
         else:
             print(Fore.RED + "This is not a valid guess! Please try again...")
 
-        print(hangman_lives(lives))
+        print(show_stats(lives))
         print(show_letter)
         print("\n")
+
     if guess_complete:
         print(Fore.YELLOW + "Congrats you guessed the word and survived!")
     else:
         print(Fore.RED + gover)
-        print(Fore.RED + "Word was", show_letter)
+        print(Fore.RED + "Word was", words)
 
 def show_stats(lives):
     '''
@@ -132,16 +122,16 @@ def show_stats(lives):
 
 
 def main():
-    '''
-    Calls on all major functions
-    '''
-    # y_n_prompt = login.user_login()
-    # login.c_login(y_n_prompt)
+#     '''
+#     Calls on all major functions
+#     '''
+#     # y_n_prompt = login.user_login()
+#     # login.c_login(y_n_prompt)
     words = generate_word()
     game_body(words)
-    # while input("Would you like to plaay again? Y/N\n").upper() == "Y":
-    #     words = generate_word()
-    #     game_body(words)
+#     # while input("Would you like to plaay again? Y/N\n").upper() == "Y":
+#     #     words = generate_word()
+#     #     game_body(words)
 
-if __name__  == "__main__":
+if __name__== "__main__":
     main()
