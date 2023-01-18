@@ -48,7 +48,7 @@ def show_stats():
     '''
     Shows the status of your word
     '''
-    os.system('clear'
+    os.system('clear')
     print(hangman_lives_dict[7-lives])
     print(Fore.YELLOW + "You currently have",lives,"left!")
 
@@ -69,7 +69,6 @@ def game_body(words):
     guessed_word = []
     guess_complete = False
     title_intro()
-    print(hangman_lives_dict [7-lives]))
     print(show_letter)
     print("\n")
 
@@ -118,14 +117,14 @@ def game_body(words):
         else:
             print(Fore.RED + "This is not a valid guess! Please try again...")
 
-        print(print(hangman_lives_dict[7-lives]))
+        show_stats()
         print(show_letter)
     
     if guess_complete:
         print(Fore.YELLOW + "Congrats you guessed the word and survived!")
     else:
         print(Fore.RED + gover)
-        print(Fore.RED + "Word was",choices)
+        print(Fore.RED + "Word was", show_letter)
 
  
 def main():
