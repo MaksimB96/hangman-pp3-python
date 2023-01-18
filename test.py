@@ -33,35 +33,17 @@ SHEET = GSPREAD_CLIENT.open('p_users')
 #colorama init used as per colorama manual - see readme
 colorama.init(autoreset = True)
 
-#basic set variables to be used in functions 
-# choices = random.choice(word_choice).upper()
-# lives = 7
-# show = list(len(choices)*'_')
-# game_complete = False
+def title_intro():
+    '''
+    Intro art and basic run down of how to play
+    '''
 
-# def c_letter(digit, choices):
-#     '''
-#     This functions checks if a specific letter is in random word
-#     '''
-#     for i in range(0, len(choices)):
-#         digit = choices[i]
-#         if uguess == digit:
-#             show[i] = uguess
-#     if '_' not in show:
-#         return True
-#     else:
-#         return False
+    print(Fore.LIGHTGREEN_EX + title)
+   
+    print('The aim of the game is to guess a word letter by letter\n')
+    print('For each incorrect letter guess you will lose a life (7 in total) so choose carefully!\n')
+    print('If you run out of lives and or complete a game you can restart by pressing either "Y" or "N" when prompted\n')
 
-
-
-# def show_stats():
-#     '''
-#     Shows the status of your word
-#     '''
-#     os.system('clear')
-#     print(hangman_lives_dict[7-lives])
-#     print(show)
-#     print(Fore.YELLOW + "You currently have",lives,"left!")
 
 def generate_word():
     choices = random.choice(word_choice).upper()
@@ -78,6 +60,10 @@ def game_body(choices):
     guessed_letter = []
     guessed_word = []
     game_complete = False
+    title_intro()
+    print(hangman_lives_dict(lives))
+    print(show)
+    print(\n)
 
     while game_complete == False and lives > 0:
         
@@ -94,10 +80,17 @@ def game_body(choices):
                 guessed_letter.append(uguess)
             
             else:
-                print(Fore.GREEN + uguess, "is in the word! Keep it up!")
+                print(Fore.YELLOW + uguess, "is in the word! Keep it up!")
                 guessed_letter.append(uguess)
-                c_letter(digit, choices)
-                game_complete = True
+                show_in_list = list(show)
+                indicies = [i for i, letter in enumerate(choices) if letter == uguess]
+
+                for index in indicies:
+                    show_in_list[index] = uguess
+                show = "".join(show_in_list)
+                
+                if "_" not in show:
+                    game_complete = True
 
         elif len(uguess) == len(choices) and uguess.isalpha():
             
@@ -110,12 +103,32 @@ def game_body(choices):
                 guessed_word.append(uguess)
             else:
                 game_complete = True
-
+                show = choices
         else:
             print(Fore.RED + "This is not a valid guess! Please try again...")
-            show_stats()
+            print(show)
+            print(hangman_lives_dict(lives))
+    
+    if game_complete:
+        print(Fore.YELLOW + "Congrats you guessed the word and survived!")
+    else:
+        print(Fore.RED + gover)
+        print(Fore.RED + "Word was",choices)
 
-game_body()
+def main():
+    '''
+    Calls on all major functions
+    '''
+    y_n_prompt = login.user_login()
+    login.c_login(y_n_prompt)
+    title_intro()
+    choices = generate_word()
+    game_body(choices)
+    
+    
+
+# main()
+
 
     #     if uguess == choices:
     #         game_complete = True
