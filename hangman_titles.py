@@ -31,18 +31,9 @@ gbye = """
 
 """
 
-def hangman_lives_dict(lives):
-    hanman_lives =[
-"""
-    +---+
-        |
-        |
-        |
-        |
-        |
-=========
-""",
-"""
+hangman_lives_dict ={
+    
+1:"""
     +---+
     |   |
         |
@@ -51,7 +42,7 @@ def hangman_lives_dict(lives):
         |
 =========
     """,
-"""
+2:"""
     +---+
     |   |
     O   |
@@ -60,7 +51,7 @@ def hangman_lives_dict(lives):
         |
 =========
     """,
-"""
+3:"""
     +---+
     |   |
     O   |
@@ -69,7 +60,7 @@ def hangman_lives_dict(lives):
         |
 =========
     """,
-"""
+4:"""
     +---+
     |   |
     O   |
@@ -78,7 +69,7 @@ def hangman_lives_dict(lives):
         |
 =========
     """,
-"""
+5:"""
     +---+
     |   |
     O   |
@@ -87,7 +78,7 @@ def hangman_lives_dict(lives):
         |
 =========
     """,
-"""
+6:"""
     +---+
     |   |
     O   |
@@ -96,7 +87,7 @@ def hangman_lives_dict(lives):
         |
 =========
     """,
-"""
+7:"""
     +---+
     |   |
    *_*  |
@@ -104,6 +95,5 @@ def hangman_lives_dict(lives):
    / \  |
         |
 =========
-
-    """
-]
+ """
+}

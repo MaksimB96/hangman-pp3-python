@@ -15,8 +15,8 @@ from rand_word import word_choice
 
 #imported specific aspects for data handle, color and titles
 from google.oauth2.service_account import Credentials
-from colorama import Fore, Back
-from hangman_titles import title, gbye, gover, hangman_lives_dict
+from colorama import Fore
+from hangman_titles import title, gbye, gover
 
 #scope used for data handling - credit love sandwich
 SCOPE = [
@@ -63,7 +63,7 @@ def game_body(choices):
     title_intro()
     print(hangman_lives_dict(lives))
     print(show)
-    print(\n)
+    print("\n")
 
     while game_complete == False and lives > 0:
         
@@ -115,19 +115,105 @@ def game_body(choices):
         print(Fore.RED + gover)
         print(Fore.RED + "Word was",choices)
 
+def hangman_lives_dict(lives):
+    hangman_lives =[
+"""
+    +---+
+        |
+        |
+        |
+        |
+        |
+=========
+""",
+"""
+    +---+
+    |   |
+        |
+        |
+        |
+        |
+=========
+    """,
+"""
+    +---+
+    |   |
+    O   |
+        |
+        |
+        |
+=========
+    """,
+"""
+    +---+
+    |   |
+    O   |
+    |   |
+        |
+        |
+=========
+    """,
+"""
+    +---+
+    |   |
+    O   |
+   /|   |
+        |
+        |
+=========
+    """,
+"""
+    +---+
+    |   |
+    O   |
+   /|\  |
+        |
+        |
+=========
+    """,
+"""
+    +---+
+    |   |
+    O   |
+   /|\  |
+   /    |
+        |
+=========
+    """,
+"""
+    +---+
+    |   |
+   *_*  |
+   /|\  |
+   / \  |
+        |
+=========
+ """
+]
+
+# def game_restart():
+#     '''
+#     Allows user to restart the game 
+#     '''
+
+        
+
 def main():
     '''
     Calls on all major functions
     '''
     y_n_prompt = login.user_login()
     login.c_login(y_n_prompt)
-    title_intro()
     choices = generate_word()
     game_body(choices)
-    
+    while input(Fore.GREEN + "Would you like to play again? Y/N\n").upper() == "y":
+        choices = generate_word()
+        game_body(choices)
+
+
     
 
-# main()
+main()
 
 
     #     if uguess == choices:
@@ -146,11 +232,8 @@ def main():
     #     print(Fore.RED + gover)
     #     print(Fore.RED + "The word was:", choices)
 
-# def game_restart():
-#     '''
-#     Allows user to restart the game 
-#     '''
-    
+
+
 
 
 
