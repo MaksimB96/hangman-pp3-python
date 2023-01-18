@@ -34,10 +34,10 @@ SHEET = GSPREAD_CLIENT.open('p_users')
 colorama.init(autoreset = True)
 
 #basic set variables to be used in functions 
-# choices = random.choice(word_choice).upper()
-# lives = 7
-# show = list(len(choices)*'_')
-# game_complete = False
+choices = random.choice(word_choice).upper()
+lives = 7
+show = list(len(choices)*'_')
+game_complete = False
 
 def c_letter(digit, choices):
     '''
@@ -53,8 +53,6 @@ def c_letter(digit, choices):
     else:
         return False
 
-
-
 def show_stats():
     '''
     Shows the status of your word
@@ -64,80 +62,25 @@ def show_stats():
     print(show)
     print(Fore.YELLOW + "You currently have",lives,"left!")
 
-def game_body():
-    '''
-    This function holds the majority of the functionality of hangman.
-    from lives lost to letters being shown to the end game.
-    '''
-    choices = random.choice(word_choice).upper()
-    lives = 7
-    show = list(len(choices)*'_')
-    game_complete = False
 
-    while game_complete == False and lives > 0:
-        show_stats()
-        uguess = input(Fore.GREEN + "Please enter a letter!\n")
-        uguess = uguess.upper()
 
-        if uguess == choices:
-            game_complete = True
-            show = choices
-        if len(uguess) == 1 and uguess in choices:
+while game_complete == False and lives > 0:
+    show_stats()
+    uguess = input(Fore.GREEN + "Please enter a letter!\n")
+    uguess = uguess.upper()
+
+    if uguess == choices:
+        game_complete = True
+        show = choices
+    if len(uguess) == 1 and uguess in choices:
             game_complete = c_letter(uguess, choices)
 
-        else:
-            lives -= 1
-        show_stats()
+    else:
+        lives -= 1
+    show_stats()
 
     if game_complete:
         print(Fore.YELLOW + "Congratulations, your guessing skills are most impressive")
     else:
         print(Fore.RED + gover)
         print(Fore.RED + "The word was:", choices)
-
-       
-
-game_body()
-
-
-# def game_restart():
-#     '''
-#     Allows user to restart the game 
-#     '''
-    
-
-
-
-
-# def title_intro():
-#     '''
-#     Intro art and basic run down of how to play
-#     '''
-
-#     print(Fore.LIGHTGREEN_EX + title)
-   
-#     print('The aim of the game is to guess a word letter by letter\n')
-#     print('For each incorrect letter guess you will lose a life (7 in total) so choose carefully!\n')
-#     print('If you run out of lives and or complete a game you can restart by pressing either "Y" or "N" when prompted\n')
-
-
-# def loser():
-#     """
-#     Prints art for game over
-#     """
-#     print(Fore.RED + gover)
-
-
-
-
-# def main():
-#     '''
-#     Calls on all major functions
-#     '''
-#     y_n_prompt = login.user_login()
-#     login.c_login(y_n_prompt)
-#     title_intro()
-#     game_body(choices)
-    
-
-# main()
