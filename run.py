@@ -39,19 +39,18 @@ colorama.init(autoreset = True)
 # show = list(len(choices)*'_')
 # game_complete = False
 
-# def c_letter(digit, choices):
-#     '''
-#     This functions checks if a specific letter is in random word
-#     '''
-#     global show
-#     for i in range(0, len(choices)):
-#         digit = choices[i]
-#         if uguess == digit:
-#             show[i] = uguess
-#     if '_' not in show:
-#         return True
-#     else:
-#         return False
+def c_letter(digit, choices):
+    '''
+    This functions checks if a specific letter is in random word
+    '''
+    for i in range(0, len(choices)):
+        digit = choices[i]
+        if uguess == digit:
+            show[i] = uguess
+    if '_' not in show:
+        return True
+    else:
+        return False
 
 
 
@@ -73,18 +72,40 @@ def game_body():
     lives = 7
     show = list(len(choices)*'_')
     guessed_letter = []
+    guessed_word = []
     game_complete = False
+    
     while game_complete == False and lives > 0:
         show_stats()
         uguess = input(Fore.GREEN + "Please enter a letter!\n")
         uguess = uguess.upper()
         if len(uguess) == 1 and uguess.isalpha():
+            
             if uguess in guessed_letter:
                 print(Fore.RED + "You've already used",uguess,"! Be careful..")
+            
             elif uguess not in choices:
                 print(Fore.RED + uguess, "Is not in the word!")
+                lives -= 1
+                guessed_letter.append(uguess)
+            
+            else:
+                print(Fore.GREEN + uguess, "is in the word! Keep it up!")
+                guessed_letter.append(uguess)
+                c_letter(digit, choices)
+                game_complete = True
 
         elif len(uguess) == len(choices) and uguess.isalpha():
+            
+            if uguess in guessed_word:
+                print('You already guessed the word')
+            
+            elif uguess != choices:
+                print(Fore.RED + uguess, "Is not the word!")
+                lives -= 1
+                guessed_word.append(uguess)
+            else:
+                game_complete = True
 
         else:
             print(Fore.RED + "This is not a valid guess! Please try again...")
