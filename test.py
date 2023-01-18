@@ -122,6 +122,12 @@ def game_body(words):
         print(Fore.RED + gover)
         print(Fore.RED + "Word was", show_letter)
 
+def show_stats(lives):
+    '''
+    Shows the status of your word
+    '''
+    for _ in stages:
+        return stages[lives]
 
 
 
