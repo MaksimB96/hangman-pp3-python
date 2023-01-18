@@ -16,7 +16,7 @@ from rand_word import word_choice
 #imported specific aspects for data handle, color and titles
 from google.oauth2.service_account import Credentials
 from colorama import Fore
-from hangman_titles import title, gbye, gover, hangman_lives_dict
+from hangman_titles import title, gbye, gover, hangman_lives
 
 #scope used for data handling - credit love sandwich
 SCOPE = [
@@ -63,7 +63,7 @@ def game_body(words):
     from lives lost to letters being shown to the end game. To storing 
     guessed letters and number"
     '''
-    lives = 7
+    lives = 6
     show_letter = '_' * len(words)
     guessed_letter = []
     guessed_word = []
@@ -136,6 +136,9 @@ def main():
     # login.c_login(y_n_prompt)
     words = generate_word()
     game_body(words)
-    
+    while input("Would you like to plaay again? Y/N\n").upper() == "Y":
+        words = generate_word()
+        game_body(words)
 
-main()
+if __name__  == "__main__":
+    main()
