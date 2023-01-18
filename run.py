@@ -74,7 +74,7 @@ def game_body():
     guessed_letter = []
     guessed_word = []
     game_complete = False
-    
+
     while game_complete == False and lives > 0:
         show_stats()
         uguess = input(Fore.GREEN + "Please enter a letter!\n")
@@ -110,7 +110,8 @@ def game_body():
         else:
             print(Fore.RED + "This is not a valid guess! Please try again...")
             show_stats()
-        
+
+game_body()
 
     #     if uguess == choices:
     #         game_complete = True
@@ -165,7 +166,7 @@ def game_body():
 #     y_n_prompt = login.user_login()
 #     login.c_login(y_n_prompt)
 #     title_intro()
-#     game_body()
+#     game_body(choices)
     
 
 # main()
