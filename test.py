@@ -39,36 +39,39 @@ colorama.init(autoreset = True)
 # show = list(len(choices)*'_')
 # game_complete = False
 
-def c_letter(digit, choices):
-    '''
-    This functions checks if a specific letter is in random word
-    '''
-    for i in range(0, len(choices)):
-        digit = choices[i]
-        if uguess == digit:
-            show[i] = uguess
-    if '_' not in show:
-        return True
-    else:
-        return False
+# def c_letter(digit, choices):
+#     '''
+#     This functions checks if a specific letter is in random word
+#     '''
+#     for i in range(0, len(choices)):
+#         digit = choices[i]
+#         if uguess == digit:
+#             show[i] = uguess
+#     if '_' not in show:
+#         return True
+#     else:
+#         return False
 
 
 
-def show_stats():
-    '''
-    Shows the status of your word
-    '''
-    os.system('clear')
-    print(hangman_lives_dict[7-lives])
-    print(show)
-    print(Fore.YELLOW + "You currently have",lives,"left!")
+# def show_stats():
+#     '''
+#     Shows the status of your word
+#     '''
+#     os.system('clear')
+#     print(hangman_lives_dict[7-lives])
+#     print(show)
+#     print(Fore.YELLOW + "You currently have",lives,"left!")
+
+def generate_word():
+    choices = random.choice(word_choice).upper()
+    return choices
 
 def game_body():
     '''
     This function holds the majority of the functionality of hangman.
     from lives lost to letters being shown to the end game.
     '''
-    choices = random.choice(word_choice).upper()
     lives = 7
     show = list(len(choices)*'_')
     guessed_letter = []
@@ -137,24 +140,6 @@ game_body()
 
 
 
-
-# def title_intro():
-#     '''
-#     Intro art and basic run down of how to play
-#     '''
-
-#     print(Fore.LIGHTGREEN_EX + title)
-   
-#     print('The aim of the game is to guess a word letter by letter\n')
-#     print('For each incorrect letter guess you will lose a life (7 in total) so choose carefully!\n')
-#     print('If you run out of lives and or complete a game you can restart by pressing either "Y" or "N" when prompted\n')
-
-
-# def loser():
-#     """
-#     Prints art for game over
-#     """
-#     print(Fore.RED + gover)
 
 
 
