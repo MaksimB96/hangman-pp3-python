@@ -1,5 +1,4 @@
 word_choice = [
-
     'demonstration',
     'motorcycle',
     'trip',
@@ -99,5 +98,4 @@ word_choice = [
     'recruit',
     'night',
     'occasion',
-    'reach'
-]
+    'reach']

@@ -16,7 +16,7 @@ from rand_word import word_choice
 #imported specific aspects for data handle, color and titles
 from google.oauth2.service_account import Credentials
 from colorama import Fore
-from hangman_titles import title, gbye, gover, hangman_lives
+from hangman_titles import title, gbye, gover, stages
 
 #scope used for data handling - credit love sandwich
 SCOPE = [
@@ -44,18 +44,19 @@ def title_intro():
     print('For each incorrect letter guess you will lose a life (7 in total) so choose carefully!\n')
     print('If you run out of lives and or complete a game you can restart by pressing either "Y" or "N" when prompted\n')
 
-def show_stats():
-    '''
-    Shows the status of your word
-    '''
-    os.system('clear')
-    print(hangman_lives(lives))
-    print(Fore.YELLOW + "You currently have",lives,"left!")
+# def show_stats():
+#     '''
+#     Shows the status of your word
+#     '''
+#     global lives
+#     os.system('clear')
+#     print(hangman_lives(lives))
+#     print(Fore.YELLOW + "You currently have",lives,"left!")
 
 
 def generate_word():
-    words = random.choice(word_choice).upper()
-    return words
+    words = random.choice(word_choice)
+    return words.upper()
 
 def game_body(words):
     '''
@@ -69,25 +70,28 @@ def game_body(words):
     guessed_word = []
     guess_complete = False
     title_intro()
+    print(hangman_lives(lives))
     print(show_letter)
     print("\n")
 
-    while not guess_complete and lives < 0 :      
-        uguess = input(Fore.GREEN + "Please enter a letter!\n").upper()
+    while not guess_complete and lives < 0:
+
+        uguess = input(Fore.GREEN + "Please enter a letter!\n")
+
         if len(uguess) == 1 and uguess.isalpha():         
             if uguess in guessed_letter:
-                print(Fore.RED + "You've already used",uguess,"! Be careful..")          
+                print(Fore.RED + "You've already used", uguess, "! Be careful..")          
             elif uguess not in words:
                 print(Fore.RED + uguess, "Is not in the word!")
                 lives -= 1
-                guessed_letter.append(uguess)
-                show_stats()          
+                guessed_letter.append(uguess)        
             else:
                 print(Fore.YELLOW + uguess, "is in the word! Keep it up!")
                 guessed_letter.append(uguess)
                 show_letter_list = list(show_letter)
 
-                indicies = [i for i, letter in enumerate(choices) if letter == uguess]
+                indicies = [i for i, letter in enumerate(show_letter)
+                            if letter == uguess]
                 for index in indicies:
                     show_letter_list[index] = uguess
 
@@ -109,13 +113,17 @@ def game_body(words):
         else:
             print(Fore.RED + "This is not a valid guess! Please try again...")
 
-        show_stats()
-        print(show_letter)  
+        print(hangman_lives(lives))
+        print(show_letter)
+        print("\n")
     if guess_complete:
         print(Fore.YELLOW + "Congrats you guessed the word and survived!")
     else:
         print(Fore.RED + gover)
         print(Fore.RED + "Word was", show_letter)
+
+
+
 
 def main():
     '''
@@ -125,9 +133,9 @@ def main():
     # login.c_login(y_n_prompt)
     words = generate_word()
     game_body(words)
-    while input("Would you like to plaay again? Y/N\n").upper() == "Y":
-        words = generate_word()
-        game_body(words)
+    # while input("Would you like to plaay again? Y/N\n").upper() == "Y":
+    #     words = generate_word()
+    #     game_body(words)
 
 if __name__  == "__main__":
     main()

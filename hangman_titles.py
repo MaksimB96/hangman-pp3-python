@@ -31,8 +31,7 @@ gbye = """
 
 """
 
-def hangman_lives():
-    stages = [
+stages = [
     """
         +---+
             |
@@ -106,4 +105,3 @@ def hangman_lives():
     =========
     """
     ]
-    return stages[lives]
