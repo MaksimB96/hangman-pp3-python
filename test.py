@@ -67,10 +67,11 @@ def generate_word():
     choices = random.choice(word_choice).upper()
     return choices
 
-def game_body():
+def game_body(choices):
     '''
     This function holds the majority of the functionality of hangman.
-    from lives lost to letters being shown to the end game.
+    from lives lost to letters being shown to the end game. To storing 
+    guessed letters and number"
     '''
     lives = 7
     show = list(len(choices)*'_')
@@ -79,7 +80,7 @@ def game_body():
     game_complete = False
 
     while game_complete == False and lives > 0:
-        show_stats()
+        
         uguess = input(Fore.GREEN + "Please enter a letter!\n")
         uguess = uguess.upper()
         if len(uguess) == 1 and uguess.isalpha():
