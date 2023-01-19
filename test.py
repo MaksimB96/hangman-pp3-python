@@ -146,6 +146,16 @@ def game_restart() -> str:
             reset_screen()
             print(Fore.LIGHTGREEN_EX + gbye)
 
+def check_game_restart(restart_prompt:str):
+    try:
+        str(restart_prompt)
+        if y_n_prompt not in {"y", "n"}:
+            raise ValueError(Fore.RED + "Please enter the correct input!")
+    except ValueError as e:
+        print(Fore.RED + f"{e} Please enter either Y or N")
+    return True
+
+
     
 
 def main():
