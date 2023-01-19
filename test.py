@@ -136,6 +136,10 @@ def reset_screen():
     os.system('clear')
 
 def game_restart() -> str:
+    '''
+    Function that allows either to continue playig hangman or
+    exit based on user inputs
+    '''
     while True:
         restart_prompt = input("Would you like to play again?").upper()
         if restart_prompt == "Y":
@@ -145,11 +149,19 @@ def game_restart() -> str:
         elif restart_prompt == "N":
             reset_screen()
             print(Fore.LIGHTGREEN_EX + gbye)
+        
+        if check_game_restart(restart_prompt):
+            break
+    return restart_prompt
 
 def check_game_restart(restart_prompt:str):
+    '''
+    This function handles basic error handling, making sure
+    proper input is used!
+    '''
     try:
         str(restart_prompt)
-        if y_n_prompt not in {"y", "n"}:
+        if restart_prompt not in {"y", "n"}:
             raise ValueError(Fore.RED + "Please enter the correct input!")
     except ValueError as e:
         print(Fore.RED + f"{e} Please enter either Y or N")
@@ -167,6 +179,10 @@ def main():
     title_intro()
     words = generate_word()
     game_body(words)
+    game_restart()
+    reset_screen()
+    # y_n_prompt = login.user_login()
+#     # login.c_login(y_n_prompt)
 
 
 if __name__== "__main__":
