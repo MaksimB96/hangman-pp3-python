@@ -64,7 +64,7 @@ def game_body(words):
     from lives lost to letters being shown to the end game. To storing 
     guessed letters and number"
     '''
-    lives = 6
+    lives = 7
     show_letter = list(len(words)*'_')
     guessed_letter = []
     guess_complete = False
@@ -73,7 +73,7 @@ def game_body(words):
     print("\n")
 
     while not guess_complete and lives > 0:
-        uguess = input("Please enter a letter!\n")
+        uguess = input("Please enter a letter!\n").upper()
 
         if len(uguess) == 1 and uguess.isalpha():         
             if uguess in guessed_letter:
@@ -114,7 +114,7 @@ def game_body(words):
 
 def show_stats(lives):
     '''
-    Shows the status of your word
+    Shows the status of hangman, that returns when lives exhausted
     '''
     for _ in stages:
         return stages[lives]
