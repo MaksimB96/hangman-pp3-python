@@ -1,8 +1,8 @@
-# imports to access my sheet
+# imports to access my sheet, this includes google auth.
 import random
 import gspread
 from google.oauth2.service_account import Credentials
-from colorama import Fore, Back
+from colorama import Fore
 
 # Love sandwiches inspired code
 SCOPE = [
@@ -20,7 +20,8 @@ SHEET = GSPREAD_CLIENT.open('p_users')
 def user_login() -> str:
     """
     This function will help determine if a user is new or returning
-    If new, the user will be set up, otherwise a login will be asked
+    If new, the user will be set up, otherwise a login will be asked 
+    and calls on functions based on old/new users
     """
     while True:
         print(Fore.BLUE + '~~~~~~~~~~~~~~~~~~~')
@@ -59,7 +60,8 @@ def c_login(y_n_prompt: str):
 def newu():
     """
     If the user is new, password and name will be required to enter,
-    then will be stored on google spreadsheet
+    then will be stored on google spreadsheet. All info was gained from 
+    love sandwiches and the g spread manual
     """
     # New user segment
     new_user_log = SHEET.worksheet("users")
