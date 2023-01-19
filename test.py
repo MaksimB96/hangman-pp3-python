@@ -135,6 +135,19 @@ def reset_screen():
     '''
     os.system('clear')
 
+def game_restart() -> str:
+    while True:
+        restart_prompt = input("Would you like to play again?").upper()
+        if restart_prompt == "Y":
+            reset_screen()
+            words = generate_word()
+            game_body(words)
+        elif restart_prompt == "N":
+            reset_screen()
+            print(Fore.LIGHTGREEN_EX + gbye)
+
+    
+
 def main():
 #     '''
 #     Calls on all major functions
@@ -144,9 +157,7 @@ def main():
     title_intro()
     words = generate_word()
     game_body(words)
-#     # while input("Would you like to plaay again? Y/N\n").upper() == "Y":
-#     #     words = generate_word()
-#     #     game_body(words)
+
 
 if __name__== "__main__":
     main()
