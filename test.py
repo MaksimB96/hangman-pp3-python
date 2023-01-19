@@ -2,7 +2,7 @@
 import colorama
 
 #random and os used for random functionality and os for clear screen 
-import random, os
+import random, os, time
 
 #login.py imported for user integration
 import login
@@ -16,6 +16,7 @@ from rand_word import word_choice
 #imported specific aspects for data handle, color and titles
 from google.oauth2.service_account import Credentials
 from colorama import Fore
+from time import sleep
 from hangman_titles import title, gbye, gover, stages
 
 #scope used for data handling - credit love sandwich
@@ -39,11 +40,13 @@ def title_intro():
     '''
 
     print(Fore.LIGHTGREEN_EX + title)
-   
+    sleep(.8)
     print('The aim of the game is to guess a word letter by letter\n')
+    sleep(.8)
     print('For each incorrect letter guess you will lose a life (7 in total) so choose carefully!\n')
+    sleep(.8)
     print('If you run out of lives and or complete a game you can restart by pressing either "Y" or "N" when prompted\n')
-
+    sleep(.8)
 def generate_word():
     words = random.choice(word_choice)
     return words.upper()
@@ -55,11 +58,11 @@ def game_body(words):
     guessed letters and number"
     '''
     lives = 7
-    show_letter = list(len(words)*'_')
+    show_letter = '_' * len(words)
     guessed_letter = []
     guess_complete = False
     print(show_stats(lives))
-    print(Fore.YELLOW + "You currently have",lives,"left!\n")
+    print(Fore.YELLOW + "You currently have",lives, Fore.YELLOW+"lives left!\n")
     print(show_letter)
     print("\n")
 
@@ -72,18 +75,18 @@ def game_body(words):
             elif uguess not in words:
                 print(Fore.RED + uguess, "Is not in the word!")
                 lives -= 1
-                print(Fore.YELLOW + "You currently have",lives,"left!\n")
+                print(Fore.YELLOW + "You currently have",lives, Fore.YELLOW+"lives left!\n")
                 guessed_letter.append(uguess)        
             else:
                 print(Fore.YELLOW + uguess, "is in the word! Keep it up!")
                 print(Fore.YELLOW + "You currently have",lives,"left!\n")
                 guessed_letter.append(uguess)
                 show_stats(lives)
-                # show_letter_list = list(show_letter)
-                # indicies = [i for i, letter in enumerate(show_letter) if letter == uguess]
-                # for index in indicies:
-                #     show_letter_list[index] = uguess
-                # show_letter = "".join(show_letter_list)              
+                show_letter_list = list(show_letter)
+                indicies = [i for i, letter in enumerate(show_letter) if letter == uguess]
+                for index in indicies:
+                    show_letter_list[index] = uguess
+                show_letter = "".join(show_letter_list)              
                 if "_" not in show_letter:
                     guess_complete = True
         elif len(uguess) == len(words) and uguess.isalpha():                 
