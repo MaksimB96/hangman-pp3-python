@@ -1,38 +1,43 @@
-#random and os used for random functionality and os for clear screen 
-import random, os, time
+# random and os used for random functionality and os for clear screen
+import random
+import os
 
-#colorama used for more color variation 
+# Time used for sleep function to slow console
+import time
+
+# colorama used for more color variation
 import colorama
 
-#login.py imported for user integration
+# login.py imported for user integration
 import login
 
-#gspread used for spreadsheet data handling
+# gspread used for spreadsheet data handling
 import gspread
 
-#rand-word.py list imported to be utilised in game
+# rand-word.py list imported to be utilised in game
 from rand_word import word_choice
 
-#imported specific aspects for data handle, color and titles
+# imported specific aspects for data handle, color and titles
 from google.oauth2.service_account import Credentials
 from colorama import Fore
 from time import sleep
 from hangman_titles import title, gbye, gover, stages
 
-#scope used for data handling - credit love sandwich
+# scope used for data handling - credit love sandwich
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
     ]
 
-CREDS = Credentials.from_service_account_file('creds.json') 
+CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('p_users')
 
-#colorama init used as per colorama manual - see readme
-colorama.init(autoreset = True)
+# colorama init used as per colorama manual - see readme
+colorama.init(autoreset=True)
+
 
 def title_intro():
     '''
@@ -42,20 +47,24 @@ def title_intro():
     sleep(1.3)
     print('The aim of the game is to guess a word letter by letter\n')
     sleep(1.3)
-    print('For each incorrect letter guess you will lose a life (7 in total) so choose carefully!\n')
+    print('For each incorrect letter guess you will lose a life\n')
+    print('7 in total) so choose carefully!\n')
     sleep(1.3)
-    print('If you run out of lives and or complete a game you can restart by pressing either "Y" or "N" when prompted\n')
+    print('If you run out of lives and or complete a game')
+    print('You can restart by pressing either "Y" or "N" when prompted\n')
     sleep(1.3)
     reset_screen()
+
 
 def generate_word():
     words = random.choice(word_choice)
     return words.upper()
 
+
 def game_body(words):
     '''
     This function holds the majority of the functionality of hangman.
-    from lives lost to letters being shown to the end game. To storing 
+    from lives lost to letters being shown to the end game. To storing
     guessed letters and number"
     '''
     lives = 7
@@ -63,15 +72,14 @@ def game_body(words):
     guessed_letter = []
     guess_complete = False
     print(show_stats(lives))
-    print(Fore.YELLOW + "You currently have",lives, Fore.YELLOW+"lives left!\n")
+    print("You have", Fore.YELLOW + lives, "lives left!\n")
     print(show_letter)
     print("\n")
 
     while not guess_complete and lives > 0:
         uguess = input("Please enter a letter!\n").upper()
 
-        if len(uguess) == 1 and uguess.isalpha():         
-            
+        if len(uguess) == 1 and uguess.isalpha():
             if uguess in guessed_letter:
                 reset_screen()
                 print(Fore.RED + "You've already used", uguess)
@@ -79,24 +87,22 @@ def game_body(words):
                 reset_screen()
                 print(Fore.RED + uguess, "Is not in the word!")
                 lives -= 1
-                print(Fore.YELLOW + "You currently have",lives, Fore.YELLOW+"lives left!\n")
-                guessed_letter.append(uguess)        
+                print("You have", Fore.YELLOW + lives, "lives left!\n")
+                guessed_letter.append(uguess)
             else:
                 reset_screen()
                 print(Fore.YELLOW + uguess, "is in the word! Keep it up!")
                 guessed_letter.append(uguess)
-                print(Fore.YELLOW + "You currently have",lives,"left!\n")
+                print(Fore.YELLOW + "You currently have", lives, "left!\n")
                 show_stats(lives)
                 show_letter_list = list(show_letter)
-                indicies = [i for i, letter in enumerate(words) if letter == uguess]
+                indicies = [i for i, ltr in enumerate(words) if ltr == uguess]
                 for index in indicies:
                     show_letter_list[index] = uguess
-                show_letter = "".join(show_letter_list)              
+                show_letter = "".join(show_letter_list)
                 if "_" not in show_letter:
                     guess_complete = True
-        
-        elif len(uguess) == len(words) and uguess.isalpha():                 
-            
+        elif len(uguess) == len(words) and uguess.isalpha():
             if uguess != show_letter:
                 reset_screen()
                 print(Fore.RED + uguess, "Is not the word!")
@@ -107,7 +113,6 @@ def game_body(words):
         else:
             reset_screen()
             print(Fore.RED + "This is not a valid guess! Please try again...")
-        
         print(show_stats(lives))
         print(show_letter)
         print("\n")
@@ -120,6 +125,7 @@ def game_body(words):
         print(Fore.RED + gover)
         print(Fore.RED + "Word was", words)
 
+
 def show_stats(lives):
     '''
     Shows the status of hangman, that returns when lives exhausted
@@ -127,12 +133,14 @@ def show_stats(lives):
     for _ in stages:
         return stages[lives]
 
+
 def reset_screen():
     '''
     Basic function that clears the screen after each turn, this makes UI
     cleaner
     '''
     os.system('clear')
+
 
 def game_restart() -> str:
     '''
@@ -152,11 +160,10 @@ def game_restart() -> str:
             y_n_prompt = login.user_login()
             login.c_login(y_n_prompt)
 
-
-        
         if check_game_restart(restart_prompt):
             break
     return restart_prompt
+
 
 def check_game_restart(restart_prompt: str):
     '''
@@ -172,8 +179,6 @@ def check_game_restart(restart_prompt: str):
     return True
 
 
-    
-
 def main():
     '''
     Calls on all major functions
@@ -187,5 +192,5 @@ def main():
     reset_screen()
 
 
-if __name__== "__main__":
+if __name__ == "__main__":
     main()
