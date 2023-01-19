@@ -20,7 +20,7 @@ SHEET = GSPREAD_CLIENT.open('p_users')
 def user_login() -> str:
     """
     This function will help determine if a user is new or returning
-    If new, the user will be set up, otherwise a login will be asked 
+    If new, the user will be set up, otherwise a login will be asked
     and calls on functions based on old/new users
     """
     while True:
@@ -60,7 +60,7 @@ def c_login(y_n_prompt: str):
 def newu():
     """
     If the user is new, password and name will be required to enter,
-    then will be stored on google spreadsheet. All info was gained from 
+    then will be stored on google spreadsheet. All info was gained from
     love sandwiches and the g spread manual
     """
     # New user segment

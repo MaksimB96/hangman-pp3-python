@@ -1,7 +1,7 @@
 # random and os used for random functionality and os for clear screen
 import random
 
-# Os used for clearing screen 
+# Os used for clearing screen
 import os
 
 # Time used for sleep function to slow console
@@ -191,7 +191,7 @@ def check_game_restart(restart_prompt: str):
 
 def main():
     '''
-    Calls on all major functions. Starts by using login.py, letting the 
+    Calls on all major functions. Starts by using login.py, letting the
     user enter details which save to spreadsheet. Then the title intro
     followed by the game, finishing off with the game reset function
     '''
