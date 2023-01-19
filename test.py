@@ -1,8 +1,8 @@
-#colorama used for more color variation 
-import colorama
-
 #random and os used for random functionality and os for clear screen 
 import random, os, time
+
+#colorama used for more color variation 
+import colorama
 
 #login.py imported for user integration
 import login
@@ -59,7 +59,7 @@ def game_body(words):
     guessed letters and number"
     '''
     lives = 7
-    show_letter = '_' * len(words)
+    show_letter = "_" * len(words)
     guessed_letter = []
     guess_complete = False
     print(show_stats(lives))
@@ -84,11 +84,11 @@ def game_body(words):
             else:
                 reset_screen()
                 print(Fore.YELLOW + uguess, "is in the word! Keep it up!")
-                print(Fore.YELLOW + "You currently have",lives,"left!\n")
                 guessed_letter.append(uguess)
+                print(Fore.YELLOW + "You currently have",lives,"left!\n")
                 show_stats(lives)
                 show_letter_list = list(show_letter)
-                indicies = [i for i, letter in enumerate(show_letter) if letter == uguess]
+                indicies = [i for i, letter in enumerate(words) if letter == uguess]
                 for index in indicies:
                     show_letter_list[index] = uguess
                 show_letter = "".join(show_letter_list)              
@@ -127,7 +127,6 @@ def show_stats(lives):
     for _ in stages:
         return stages[lives]
 
-
 def reset_screen():
     '''
     Basic function that clears the screen after each turn, this makes UI
@@ -141,7 +140,7 @@ def game_restart() -> str:
     exit based on user inputs
     '''
     while True:
-        restart_prompt = input("Would you like to play again?").upper()
+        restart_prompt = input("Would you like to play again?\n").upper()
         if restart_prompt == "Y":
             reset_screen()
             words = generate_word()
@@ -154,7 +153,7 @@ def game_restart() -> str:
             break
     return restart_prompt
 
-def check_game_restart(restart_prompt:str):
+def check_game_restart(restart_prompt: str):
     '''
     This function handles basic error handling, making sure
     proper input is used!
@@ -171,18 +170,18 @@ def check_game_restart(restart_prompt:str):
     
 
 def main():
-#     '''
-#     Calls on all major functions
-#     '''
-#     # y_n_prompt = login.user_login()
-#     # login.c_login(y_n_prompt)
+    '''
+    Calls on all major functions
+    '''
+    # y_n_prompt = login.user_login()
+    # login.c_login(y_n_prompt)
     title_intro()
     words = generate_word()
     game_body(words)
-    game_restart()
-    reset_screen()
+    # game_restart()
+    # reset_screen()
     # y_n_prompt = login.user_login()
-#     # login.c_login(y_n_prompt)
+    # login.c_login(y_n_prompt)
 
 
 if __name__== "__main__":
