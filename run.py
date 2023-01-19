@@ -43,7 +43,8 @@ colorama.init(autoreset=True)
 
 def title_intro():
     '''
-    Intro art and basic run down of how to play
+    Intro art and basic run down of how to play with sleep functionality
+    to allow the user to read instructions before playing
     '''
     print(Fore.LIGHTGREEN_EX + title)
     sleep(1.8)
@@ -59,6 +60,10 @@ def title_intro():
 
 
 def generate_word():
+    '''
+    Basic function that allows random function to pick from list of words
+    from the random-word.py file
+    '''
     words = random.choice(word_choice)
     return words.upper()
 
@@ -67,7 +72,7 @@ def game_body(words):
     '''
     This function holds the majority of the functionality of hangman.
     from lives lost to letters being shown to the end game. To storing
-    guessed letters and number"
+    guessed letters with error handeling based on what input is given.
     '''
     lives = 7
     show_letter = "_" * len(words)
@@ -130,7 +135,8 @@ def game_body(words):
 
 def show_stats(lives):
     '''
-    Shows the status of hangman, that returns when lives exhausted
+    Shows the status of hangman, that returns when lives exhausted and or
+    decremented
     '''
     for _ in stages:
         return stages[lives]
@@ -139,7 +145,7 @@ def show_stats(lives):
 def reset_screen():
     '''
     Basic function that clears the screen after each turn, this makes UI
-    cleaner
+    cleaner calling on the imported os library
     '''
     os.system('clear')
 
@@ -147,7 +153,8 @@ def reset_screen():
 def game_restart() -> str:
     '''
     Function that allows either to continue playig hangman or
-    exit based on user inputs
+    exit based on user inputs. If yes then game initializes again
+    if no, you get a farewell message followed by the login segment.
     '''
     while True:
         restart_prompt = input("Would you like to play again? Y/N\n").upper()
@@ -171,7 +178,7 @@ def game_restart() -> str:
 def check_game_restart(restart_prompt: str):
     '''
     This function handles basic error handling, making sure
-    proper input is used!
+    proper input is used and is called in game_restart function
     '''
     try:
         str(restart_prompt)
@@ -184,7 +191,9 @@ def check_game_restart(restart_prompt: str):
 
 def main():
     '''
-    Calls on all major functions
+    Calls on all major functions. Starts by using login.py, letting the 
+    user enter details which save to spreadsheet. Then the title intro
+    followed by the game, finishing off with the game reset function
     '''
     y_n_prompt = login.user_login()
     login.c_login(y_n_prompt)
