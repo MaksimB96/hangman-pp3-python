@@ -44,15 +44,15 @@ def title_intro():
     Intro art and basic run down of how to play
     '''
     print(Fore.LIGHTGREEN_EX + title)
-    sleep(1.3)
+    sleep(1.8)
     print('The aim of the game is to guess a word letter by letter\n')
-    sleep(1.3)
+    sleep(1.8)
     print('For each incorrect letter guess you will lose a life\n')
     print('7 in total) so choose carefully!\n')
-    sleep(1.3)
+    sleep(1.8)
     print('If you run out of lives and or complete a game')
     print('You can restart by pressing either "Y" or "N" when prompted\n')
-    sleep(1.3)
+    sleep(1.8)
     reset_screen()
 
 
@@ -148,7 +148,7 @@ def game_restart() -> str:
     exit based on user inputs
     '''
     while True:
-        restart_prompt = input("Would you like to play again?\n").upper()
+        restart_prompt = input("Would you like to play again? Y/N\n").upper()
         if restart_prompt == "Y":
             reset_screen()
             words = generate_word()
