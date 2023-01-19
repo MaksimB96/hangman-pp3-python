@@ -148,6 +148,11 @@ def game_restart() -> str:
         elif restart_prompt == "N":
             reset_screen()
             print(Fore.LIGHTGREEN_EX + gbye)
+            sleep(1)
+            y_n_prompt = login.user_login()
+            login.c_login(y_n_prompt)
+
+
         
         if check_game_restart(restart_prompt):
             break
@@ -178,10 +183,8 @@ def main():
     title_intro()
     words = generate_word()
     game_body(words)
-    # game_restart()
-    # reset_screen()
-    # y_n_prompt = login.user_login()
-    # login.c_login(y_n_prompt)
+    game_restart()
+    reset_screen()
 
 
 if __name__== "__main__":
