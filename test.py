@@ -38,15 +38,16 @@ def title_intro():
     '''
     Intro art and basic run down of how to play
     '''
-
     print(Fore.LIGHTGREEN_EX + title)
-    sleep(.8)
+    sleep(1.3)
     print('The aim of the game is to guess a word letter by letter\n')
-    sleep(.8)
+    sleep(1.3)
     print('For each incorrect letter guess you will lose a life (7 in total) so choose carefully!\n')
-    sleep(.8)
+    sleep(1.3)
     print('If you run out of lives and or complete a game you can restart by pressing either "Y" or "N" when prompted\n')
-    sleep(.8)
+    sleep(1.3)
+    reset_screen()
+
 def generate_word():
     words = random.choice(word_choice)
     return words.upper()
@@ -70,14 +71,18 @@ def game_body(words):
         uguess = input("Please enter a letter!\n").upper()
 
         if len(uguess) == 1 and uguess.isalpha():         
+            
             if uguess in guessed_letter:
+                reset_screen()
                 print(Fore.RED + "You've already used", uguess)
             elif uguess not in words:
+                reset_screen()
                 print(Fore.RED + uguess, "Is not in the word!")
                 lives -= 1
                 print(Fore.YELLOW + "You currently have",lives, Fore.YELLOW+"lives left!\n")
                 guessed_letter.append(uguess)        
             else:
+                reset_screen()
                 print(Fore.YELLOW + uguess, "is in the word! Keep it up!")
                 print(Fore.YELLOW + "You currently have",lives,"left!\n")
                 guessed_letter.append(uguess)
@@ -89,22 +94,29 @@ def game_body(words):
                 show_letter = "".join(show_letter_list)              
                 if "_" not in show_letter:
                     guess_complete = True
+        
         elif len(uguess) == len(words) and uguess.isalpha():                 
+            
             if uguess != show_letter:
+                reset_screen()
                 print(Fore.RED + uguess, "Is not the word!")
                 lives -= 1
             else:
                 guess_complete = True
                 show_letter = words
         else:
+            reset_screen()
             print(Fore.RED + "This is not a valid guess! Please try again...")
+        
         print(show_stats(lives))
         print(show_letter)
         print("\n")
 
     if guess_complete:
+        reset_screen()
         print(Fore.YELLOW + "Congrats you guessed the word and survived!")
     else:
+        reset_screen()
         print(Fore.RED + gover)
         print(Fore.RED + "Word was", words)
 
@@ -116,7 +128,7 @@ def show_stats(lives):
         return stages[lives]
 
 
-def clean_screen():
+def reset_screen():
     '''
     Basic function that clears the screen after each turn, this makes UI
     cleaner
@@ -129,6 +141,7 @@ def main():
 #     '''
 #     # y_n_prompt = login.user_login()
 #     # login.c_login(y_n_prompt)
+    title_intro()
     words = generate_word()
     game_body(words)
 #     # while input("Would you like to plaay again? Y/N\n").upper() == "Y":
