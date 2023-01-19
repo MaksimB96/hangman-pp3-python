@@ -72,7 +72,7 @@ def game_body(words):
     print(show_letter)
     print("\n")
 
-    while not guess_complete and lives < 0:
+    while not guess_complete and lives > 0:
         uguess = input("Please enter a letter!\n")
 
         if len(uguess) == 1 and uguess.isalpha():         
