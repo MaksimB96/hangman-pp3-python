@@ -1,5 +1,7 @@
 # random and os used for random functionality and os for clear screen
 import random
+
+# Os used for clearing screen 
 import os
 
 # Time used for sleep function to slow console
@@ -153,13 +155,14 @@ def game_restart() -> str:
             reset_screen()
             words = generate_word()
             game_body(words)
+            continue
         elif restart_prompt == "N":
             reset_screen()
             print(Fore.LIGHTGREEN_EX + gbye)
             sleep(1)
             y_n_prompt = login.user_login()
             login.c_login(y_n_prompt)
-
+            break
         if check_game_restart(restart_prompt):
             break
     return restart_prompt
