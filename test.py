@@ -72,7 +72,7 @@ def game_body(words):
     guessed_letter = []
     guess_complete = False
     print(show_stats(lives))
-    print("You have", Fore.YELLOW + lives, "lives left!\n")
+    print(Fore.YELLOW + "You have", lives, "lives left!\n")
     print(show_letter)
     print("\n")
 
@@ -87,13 +87,13 @@ def game_body(words):
                 reset_screen()
                 print(Fore.RED + uguess, "Is not in the word!")
                 lives -= 1
-                print("You have", Fore.YELLOW + lives, "lives left!\n")
+                print(Fore.YELLOW + "You have", lives, "lives left!\n")
                 guessed_letter.append(uguess)
             else:
                 reset_screen()
                 print(Fore.YELLOW + uguess, "is in the word! Keep it up!")
                 guessed_letter.append(uguess)
-                print(Fore.YELLOW + "You currently have", lives, "left!\n")
+                print(Fore.YELLOW + "You have", lives, "lives left!\n")
                 show_stats(lives)
                 show_letter_list = list(show_letter)
                 indicies = [i for i, ltr in enumerate(words) if ltr == uguess]
