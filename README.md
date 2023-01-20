@@ -242,8 +242,8 @@ Deployment of site was acheived through these steps:
 ## Future Features
 
 There are a few more feartures that I would like to implement in the future. These Include:
-1.Implementation of pygame for a nicer interface
-2.A score bar, that gets saved into spreadsheet that returns when existing user enters
+1. Implementation of pygame for a nicer interface
+2. A score bar, that gets saved into spreadsheet that returns when existing user enters
 
 ## Credits
     
