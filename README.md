@@ -23,12 +23,6 @@
     * [Tools](#tools)
 5. [Features](#features)
 6. [Code Validation & Testing](#validation)
-    * [Html](#html-validation)
-    * [Css](#css-validation)
-    * [javascript](#js-validation)
-    * [Acessability](#acessability)
-    * [Perforamnce](#performnce)
-    * [User Story Testing](#user-story-testing)
 7. [Bugs](#bugs)
 8. [Deployment](#deploy)
 9. [Future Features](#future-features)
@@ -112,6 +106,7 @@ The game is made up of 3 stages:
     -Heroku
     -Ascii art generator
     -random word generator
+    -PEP8 CI Python Linter
 
 ## Features
 The Game consists of 3 segments each with their own features
@@ -195,25 +190,17 @@ only focused being called as art or to grab a random words.
 
 ### Testing User Stories
 
-1. As a first time user, I want to test my fitness knowledge
+1. As a first time user, I want to play hangman
+2. As a first time user, I want to test my guessing skills
+3. As a first time user, I want a simple and intuative interface
+4. As a first time user, I want to have the option to restart
+5. As a returning user I want to login and play again
+6. As a returning user I want to see diferent word sets
+7. As a returning user I want to be able to play again
+8. As a site owner I want people to be able to login and play
+9. As a site owner I want people to be able create an account  
+10. As a site owner I want people to either play again or not
 
-2. As a first time user, I want to test my nutrition knowledge
-
-5. As a returning user I want to refresh my knowledge on fitness
-
-6. As a returning user I want to refresh my knowledge on nutrition
-
-7. As a returning user I want to see additional questions added
-
-3. As a first time user, I want information presented in one location
-
-4. As a first time user, I want to leave feedback for further addition of questions
-
-9. As a site owner I want people to locate relevant information to the quiz
-
-10. As a site owner I want people to be able to play as many times
-
-11. As a site owner I want individuals to get in contact
 
 
 <br>
@@ -225,28 +212,14 @@ only focused being called as art or to grab a random words.
 |Quiz| Allows user to test knowledge in relation to fitness| Clear visual indicators for correct/wrong answer, questions cycle and then reset as intended|Quiz Works as intended|
 |Feedback Form| Input fields only submit once form validated| Form validates inputs and sends feedback to me| Form Works as intended|
 
-<details><summary>Screenshot</summary>
-<img src="docs/testing-features/index-uf.jpg">
-<img src="docs/testing-features/quizuf-1.jpg">
-<img src="docs/testing-features/quizuf2.jpg">
-<img src="docs/testing-features/quizuf3.jpg">
-<img src="docs/testing-features/formuf.jpg">
-</details>
 <br>
-
-
-
-8. As a returning user I want to be able to locate relevant social links
 
 | **Feature** | **Action** | **Expected Results** | **Final Result** |
 |-------------|------------|----------------------|------------------|
 |             |            |                      |                  |
-|Social Media Links|User has access socials| Functional links| Works as intended|
-<details><summary>Screenshot</summary>
-<img src="docs/testing-features/socialsuf.jpg">
-</details>
-<br>
+|Restart Prompt|User has y/n option| either restart or exit game back to login| Works as intended|
 
+<br>
 
 ## Bugs
 
