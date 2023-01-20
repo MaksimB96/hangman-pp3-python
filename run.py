@@ -169,6 +169,8 @@ def game_restart() -> str:
             sleep(1)
             y_n_prompt = login.user_login()
             login.c_login(y_n_prompt)
+            words = generate_word()
+            game_body(words)
             break
         if check_game_restart(restart_prompt):
             break
