@@ -16,10 +16,8 @@
     * [User Stories](#user-stories)
 3. [Design](#design)
     * [Design](#design-choices)
-    * [Color](#colors)
-    * [Fonts](#font)
     * [Structure](#structure)
-    * [Wireframe](#wire-frame)
+    * [Flow Chart](#flow-chart)
 4. [Tech Used](#tech-used)
     * [Languages](#languages)
     * [Tools](#tools)
@@ -70,14 +68,13 @@
 
 #### Returning User
 5. As a returning user I want to login and play again
-6. As a returning user I want to refresh my knowledge on nutrition
-7. As a returning user I want to see diferent word sets
-8. As a returning user I want to be able to play again
+6. As a returning user I want to see diferent word sets
+7. As a returning user I want to be able to play again
 
 #### Site Owner
-9. As a site owner I want people to be able to login and play
-10. As a site owner I want people to be able create an account  
-11. As a site owner I want people to either play again or not
+8. As a site owner I want people to be able to login and play
+9. As a site owner I want people to be able create an account  
+10. As a site owner I want people to either play again or not
 
 ## Design
 
@@ -125,7 +122,7 @@ The Game consists of 3 segments each with their own features
     -If you are a old user, you enter existing information
     -If either username or password incorrect error will be thrown and login will begin again.
     -once details entered main title intro will play, that is slowed with sleep function
-    -
+    -User Stories adressed: 3, 5, 8, 9
     
 ![Login](docs/features/correct-user.png)
 <br>
@@ -143,141 +140,58 @@ The Game consists of 3 segments each with their own features
 
 
 ### Game Body
-    -footer conistent on all pages with hover effect in order to provide clear feedback on selection
-    -User stories adressed: 8.
+    -After title intro has played, users will be presented with the main game phase
+    -Clear screen function focuses on the hangman game
+    -Correct inputs show on empty guess word
+    -Incorrect guesses provide feedback and increments the hangman
+    -Inputs greater than one will throw error
+    -If all lives exhausted leads to game over
+    -If guess is correct, you win!
+    -User stories adressed: 1, 2, 3, 6
 
-![Footer and Selection](docs/features/socials.png)
-![Footer and Selection](docs/features/socials-select.png)
-
-
-
-### Quiz page
-    -Clear UI
-    -Tracks score
-    -Cycles through questions and allows to restart when questions exhaust.
-    -Clear visuals for correct/incorect selections
-    -Quiz incrementss score 
-    -User stories adressed: 1, 2, 5, 6, 10.
-
-![Quiz Segment](docs/features/start-funct.png)
-![Quiz Segment](docs/features/correct-increment-next.png)
-![Quiz Segment](docs/features/restart.png)
-
-### Feedback Form
-    -Allows users to leave feedback for improvement of quiz etc.
-    -Form validates email and name (full name and proper email)
-    -Form Sends back email to me as soon as user leaves feedback
-    -User stories adreessed: 4, 7, 11. 
-
-![Feedback-form](docs/features/form-feat.png)
-<br>
-
-![Feedback-form](docs/features/invalidemail.png)
-<br>
-
-![Feedback-form](docs/features/valid-email.png)
-<br>
-
-![Feedback-form](docs/features/fullname-rreeq.png)
-<br>
-
-![Feedback-form](docs/features/fullname-valid.png)
-<br>
-
-![Feedback-form](docs/features/feedback-to-me.png)
+![Game Body features](docs/features/title.png)
+![Game Body features](docs/features/enter-letter.png)
+![Game Body features](docs/features/incorrect-hm-input.png)
+![Game Body features](docs/features/incorrect-lives.png)
+![Game Body features](docs/features/correct-reveal.png)
+![Game Body features](docs/features/gameover-loop.png)
+![Game Body features](docs/features/win.png)
 
 
 
+### Restart
+    -After loss or win you ar prompted with a restart
+    -Checks against valid input
+    -If yes, you restart game, if no you get a goodbye message and go back to login
+    -User stories adressed: 4, 7, 10
+
+![Restart Seg](docs/features/gameover-loop.png)
+![Restart Seg](docs/features/win.png)
 
 ## Validation
 
-### HTML Validation
-W3C mark-up was utilised in order to validate html of the website. All Pages pass with no errors. Warnings are related to various segments not using Headings, but utilise div elements.
+### PEP8 - CI Python Linter
+PEP8 - CI Python Linter, was used in order to validate my code for my login.py code and run.py code. Rand-words and hangman-titles were not included as they
+only focused being called as art or to grab a random words.
 
-<details><summary>Index</summary>
-<img src="docs/validations/index-valid.png">
+<details><summary>Game Body</summary>
+<img src="docs/validations/test-run.png">
 </details>
-<details><summary>Fitness Quiz</summary>
-<img src="docs/validations/fitquiz-valid.png">
-</details>
-<details><summary>Feedback</summary>
-<img src="docs/validations/cont-valid.png">
+<details><summary>Login</summary>
+<img src="docs/validations/test-login.png">
 </details>
 
 <br>
 
-### CSS Validation
-W3C CSS validator was utilised in order to make sure the css code passes standards with no errors.
 
-<details><summary>Full Document</summary>
-<img src="docs/validations/style-valid.png">
-</details>
-
-<br>
-
-### JS Validation
-JSHint validator was utilised in order to make sure the javascript code passes standards with no errors or warnings, All functions marked as "unused" are called on click in HTML code segments, images of relevnt code is attached to validations.
-
-<details><summary>Index</summary>
-<img src="docs/validations/index-js.png">
-<img src="docs/validations/showmenu-explain.png">
-</details>
-<details><summary>Fitness Quiz</summary>
-<img src="docs/validations/jshint-fitquiz.png">
-<img src="docs/validations/showmenu-explain.png">
-</details>
-<details><summary>Feedback</summary>
-<img src="docs/validations/email-js.png">
-<img src="docs/validations/emailjs-explain.png">
-<img src="docs/validations/formfunct-explain.png">
-</details>
-
-<br>
-
-### Accessability
-Wave WebAIM was utilized in order to make sure the website met high accessability standards. All pages pass with no errors or contrast errors. Warnings are due to things such as logo having the same link as the hom, which is an intentional feature. The form segment states the labels are not owned by input eventhough they have been propeerly attributed.
-
-<details><summary>Index</summary>
-<img src="docs/validations/indexwave.png">
-</details>
-<details><summary>Fitness Quiz</summary>
-<img src="docs/validations/quizwave.png">
-</details>
-<details><summary>Feedback</summary>
-<img src="docs/validations/feedbackwave.png">
-</details>
-
-<br>
-
-### Performance
-Google light house was used in order to confirm good standards of performace
-
-<details><summary>Index</summary>
-<img src="docs/validations/index-perform.png">
-</details>
-<details><summary>Fitness Quiz</summary>
-<img src="docs/validations/fitquiz-perform.png">
-</details>
-<details><summary>Feedback</summary>
-<img src="docs/validations/form-perform.png">
-</details>
-
-<br>
 
 ### Tests
 
-#### Devices tested on on:
-    -Iphone SE, XR, 11, 12, 13
-    -Ipad
-    -Macbook Pro/Air
-    -Lenovo Platform
-    -Dell Platform
+#### Error Test:
+    -Tested multitude of inputs for Login
+    -Tested multitude of inputs for Game Body
+    -Tested multitude of inputs for Restart
 
-#### Browser tested on on:
-    -Chrome
-    -Mozilla
-    -Safari
-    -Brave/Brave Mobile
 
 ### Testing User Stories
 
