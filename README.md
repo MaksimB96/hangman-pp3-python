@@ -96,16 +96,11 @@ The game is made up of 3 stages:
     -Restart: If yes, then game loops if no, then return to login
 
 ### Flow Chart
-<details><summary>Home</summary>
-<img src="docs/wireframes/index-wireframe.png">
+<details><summary>Main Flow-Chart</summary>
+<img src="docs/flowchart/flow.jpeg">
 </details>
-<details><summary>Quiz</summary>
-<img src="docs/wireframes/quiz-wireframe.png">
-</details>
-<details><summary>Feedback</summary>
-<img src="docs/wireframes/form-wireframe.png">
-</details>
--Tablet view is exactly the same as desktop!
+
+-Blue is the login flow, red is the main game body, yellow are choices.
 
 ## Tech Used
 
@@ -122,28 +117,32 @@ The game is made up of 3 stages:
     -random word generator
 
 ## Features
-The Website consists of 3 pages with 11 features
+The Game consists of 3 segments each with their own features
 
-### Logo and Nav-Bar/ Home buttons
-    -featured on all three pages
-    -Home page Icons have zoom effect and has all info on one page to prevent excessive travel
-    -Nav bar is fully responsive and changes to a burger style on mobile devices. Nav bar links to all relevant pages allowing for quick access.
-    -Nav bar has selected item in order to give clear feedback to location as well as hover.
-    -Pages 2/3 have a slight difference in appearance but over all same design in order to not disrupt immersion.
-    -User stories adressed: 3, 9.
+### Login
+    -Greeted to hangman and option if you are either a old/new user 
+    -If you are new, you enter details (password/username) that get written on spreeadsheet
+    -If you are a old user, you enter existing information
+    -If either username or password incorrect error will be thrown and login will begin again.
+    -once details entered main title intro will play, that is slowed with sleep function
+    -
     
-![Logo & Navbar](docs/features/nav-bar.png)
+![Login](docs/features/correct-user.png)
 <br>
 
-![Logo & Navbar](docs/features/nav-bar-select.png)
+![Login](docs/features/password-wrong.png)
 <br>
 
-![Logo & Navbar](docs/features/burger-nav-home.png)
+![Login](docs/features/wrong-user.png)
 
-![Logo & Navbar](docs/features/burgerr-expanded.png)
+![Login](docs/features/usernames.png)
+
+![Login](docs/features/passwords.png)
+
+![Login](docs/features/title.png)
 
 
-### Footer
+### Game Body
     -footer conistent on all pages with hover effect in order to provide clear feedback on selection
     -User stories adressed: 8.
 
@@ -388,13 +387,13 @@ X Image by <a href="https://www.flaticon.com/free-icon/close_2997911?term=x&page
 
 ## Acknowledgements
 
--I would like to thank Victor my mentor
+-I would like to thank Victor my mentor or providing aamazing feedback!
 <br>
--CI for provide me the knowledge to under-take this task
+-CI for provide me the knowledge to under-take this task specifically python module and love sandwiches
 <br>
--Tutor Support for provideing better knowledge to implement the code!
+-Tutor Support for provideing better knowledge to implement the code and help me see minor errors
 <br>
--My beautiful girlfriend who almost got all my typos and My friend for design related advice
+-My beautiful girlfriend who added literally one quetion mark
 <br>
 -The wonderful community over on Slack!
 
