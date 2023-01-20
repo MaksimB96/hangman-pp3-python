@@ -2,6 +2,7 @@
 (Developer: Maksims Buraks)
 
 ![Mockup image](docs/intro-pic.png)
+![Mockup image](docs/am-i-responsive.png)
 
 [live web-page](https://pp3-hangman-maksimb96.herokuapp.com/)
 
