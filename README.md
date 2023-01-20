@@ -40,77 +40,62 @@
 ## Project Goals
 
 ### User Goals
-    -Finding a site that provides a fun way to test users fitness knowledge
-    -To test training knowledge
-    -To test nutrition knowledge
-    -Find a way to leave feedback to improve quiz
+    -Finding a guess bassed game
+    -To test guessing ability
+    -To be able to return
 
 ### Site Owner Goals
-    -Provide a simple and fun way to test visitor knowledge 
-    -Provide an area to leave feedback
-    -Make sure contact deetails being left are real people
+    -Provide a simple and fun game 
+    -Provide an area to login
+    -Provide the option to restart
 
 ## User Experience
 
 ### Target Audience
-    -People looking to test fitness Knowledge
-    -People looking to test nutrition Knowledge
+    -People looking to test guess ability
 
 ### User Requirements and Expectations
-    -A simple and natural way to navigate the website
-    -Quick acessibility to relevant information
-    -Appealing design that responds accordingly
-    -A simple way to get in contact, and leave feedback
-    -Accessibility
+    -A simple and intuative design
+    -Quick inputs without complication
+    -Clear visual markers on each turn
+    -A way to restart
 
 ### User Stories
 
 #### First-time User
-1. As a first time user, I want to test my fitness knowledge
-2. As a first time user, I want to test my nutrition knowledge
-3. As a first time user, I want information presented in one location
-4. As a first time user, I want to leave feedback for further addition of questions
+1. As a first time user, I want to play hangman
+2. As a first time user, I want to test my guessing skills
+3. As a first time user, I want a simple and intuative interface
+4. As a first time user, I want to have the option to restart
 
 #### Returning User
-5. As a returning user I want to refresh my knowledge on fitness
+5. As a returning user I want to login and play again
 6. As a returning user I want to refresh my knowledge on nutrition
-7. As a returning user I want to see additional quesstions added
-8. As a returning user I want to be able to locate relevant social links
+7. As a returning user I want to see diferent word sets
+8. As a returning user I want to be able to play again
 
 #### Site Owner
-9. As a site owner I want people to locate relevant information to the quiz
-10. As a site owner I want people to be able to play as many times 
-11. As a site owner I want individuals to get in contact
+9. As a site owner I want people to be able to login and play
+10. As a site owner I want people to be able create an account  
+11. As a site owner I want people to either play again or not
 
 ## Design
 
 ### Design Choices
-The website was developed in such a way that had a minimal and colourful approach that is not too much to overload the senses. It has all relevaant information on the home page that allows users to jump directly to the relevant points of interest.
-
-### Colour
-Color Choices contain a slightly colder shade of greens and neutral greys and white to compliment all elements. A less satturated green was used as many associate the higher saturated colors with 'vegan'. Highlight color of oraange was used as it plays well with the secondary colors.
-<br>
-
-![Color Scheme](docs/features/colors.png)
-
-
-### Fonts
-Solway with a serif fall back was used as the main head text as it provides a nice playful and approachable flair to the website
-<br>
-Roboto with sans-serif fall back was used as it compliments solway and contrasts to its playful style without being out of place. It is also clear and concise.
+The game while being run in a terminal has some ascii art and terminal text colour in order to make it pop and be less monotone.
 
 ### Structure
-The Structure of the website is a clean and minimal approach as the main focus of the website is the quiz. Therefore the index page allows for ease of access to all relevant info. The nav bar is clean and simple with all elements being clear and intuative.
+The stucture while being relativly basic, is intuative. You are greeted with a login segment, the main game body and then a prompt to restart. If yes the loop begins again, if no, you are greeted with 'farewell' art and then retun to the login portion of hangman.
 
 <br>
 
-The website is made up of 3 pages:
+The game is made up of 3 stages:
 
-    -The home page that draws a user and links directly to other points of interest. 
-    -The fitness quiz page that contains the quiz script.
-    -A contact page that allows easy contact, validation.
+    -Login: Tests if you aree new or an old user 
+    -The main game body
+    -Restart: If yes, then game loops if no, then return to login
 
-### Wireframes
+### Flow Chart
 <details><summary>Home</summary>
 <img src="docs/wireframes/index-wireframe.png">
 </details>
@@ -125,24 +110,16 @@ The website is made up of 3 pages:
 ## Tech Used
 
 ### Languages
-    -HTML
-    -CSS
-    -Java Script
+    -Python
 
 ### Tools
     -Git
     -Git Hub
     -Git Pod
-    -Balsamiq
-    -Google Fonts
-    -Adobe Color Wheel
-    -Font Awesome
-    -Favicon.io
-    -Circle Crop
-    -EmailJs
-    -Canva
-    -Boot strap
-    -pixelr
+    -Lucid-Chart
+    -Heroku
+    -Ascii art generator
+    -random word generator
 
 ## Features
 The Website consists of 3 pages with 11 features
