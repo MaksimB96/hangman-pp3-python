@@ -212,6 +212,22 @@ only focused on being called as art or to grab random words.
 |Login| Allows user to either log back in or set up username/password|Based on y or n you enter the game as old uer or new |Works as intended|
 <br>
 User Stories: 1, 2, 3, 5, 6, 8, 9
+<details><summary>User Story Test</summary>
+<img src="docs/usertest/username-pw-tests.jpg">
+</details>
+<details><summary>User Story Test</summary>
+<img src="docs/usertest/wronguser-test.jpg">
+</details>
+<details><summary>User Story Test</summary>
+<img src="docs/usertest/hangman-test.jpg">
+</details>
+<details><summary>User Story Test</summary>
+<img src="docs/usertest/hm-wrong-input.jpg">
+</details>
+<details><summary>User Story Test</summary>
+<img src="docs/usertest/letter-ussed-test.jpg">
+</details>
+
 <br>
 
 | **Feature** | **Action** | **Expected Results** | **Final Result** |
@@ -220,6 +236,16 @@ User Stories: 1, 2, 3, 5, 6, 8, 9
 |Restart Prompt|User has y/n option| either restart or exit game back to login| Works as intended|
 <br>
 User Stories: 4, 7, 10
+
+<details><summary>User Story Test</summary>
+<img src="docs/usertest/farewell-test.jpg">
+</details>
+<details><summary>User Story Test</summary>
+<img src="docs/usertest/gameover-test.jpg">
+</details>
+
+
+
 <br>
 
 ## Bugs
