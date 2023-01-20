@@ -75,6 +75,14 @@
 ### Design Choices
 The game while being run in a terminal has some ascii art and terminal text colour in order to make it pop and be less monotone.
 
+### Import Choices
+The imports I used (These do not include the imports from my other py files) are as follows:
+
+1. Gspread - Utilised for spreadsheet manipulation, mainly passwords and ussernames
+2. Colorama - Utilised to provide color distinction and a fun design 
+3. Google-auth - Utilised for my credentials
+4. Time - Specifically for the sleep function to sslow the terminal down for users to read. 
+
 ### Structure
 The stucture while being relativly basic, is intuative. You are greeted with a login segment, the main game body and then a prompt to restart. If yes the loop begins again, if no, you are greeted with 'farewell' art and then retun to the login portion of hangman.
 
