@@ -3,7 +3,7 @@
 
 ![Mockup image](docs/intro-pic.png)
 
-[live web-page](https://maksimb96.github.io/LoveBody/)
+[live web-page](https://pp3-hangman-maksimb96.herokuapp.com/)
 
 ## Table of contents
 
@@ -234,10 +234,12 @@ User Stories: 4, 7, 10
 ## Deployment
 
 Deployment of site was acheived through these steps:
-1. I navigated to the settings section on git hub repositories on my repository.
-2. I then selected the pages link on the left side.
-3. I then selected source for the branch prompt.
-4. Roughly, 2 minutes after refreshing I recieved a link to my site: https://maksimb96.github.io/LoveBody/ 
+1. I used pip3 freeze to first get my dependancies
+2. I then went to Heroku
+3. I then, in settings put in my creds.json file
+4. I then picked to use python then jnode in that order
+5. I then linked my heroku project with GitHub repo
+6. I then chose the enable auto deploy and deploy from branch!
 
 ## Future Features
 
