@@ -275,6 +275,11 @@ Deployment of site was acheived through these steps:
 5. I then linked my heroku project with GitHub repo
 6. I then chose the enable auto deploy and deploy from branch!
 
+Once deployed on Heroku, you can fork a project as so:
+1. Click on fork repository in top right of repoitory
+2. Choose whether to copy only the default branch or all branches to the new fork.
+3. Click Create fork.
+
 ## Future Features
 
 There are a few more feartures that I would like to implement in the future. These Include:
