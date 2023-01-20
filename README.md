@@ -1,7 +1,7 @@
 # PP3 - Python Hangman
 (Developer: Maksims Buraks)
 
-![Mockup image](docs/am-i-responsive.png)
+![Mockup image](docs/intro-pic.png)
 
 [live web-page](https://maksimb96.github.io/LoveBody/)
 
