@@ -167,7 +167,7 @@ The Game consists of 3 segments each with their own features
 
 ### PEP8 - CI Python Linter
 PEP8 - CI Python Linter, was used in order to validate my code for my login.py code and run.py code. Rand-words and hangman-titles were not included as they
-only focused being called as art or to grab a random words.
+only focused on being called as art or to grab random words.
 
 <details><summary>Game Body</summary>
 <img src="docs/validations/test-run.png">
@@ -208,17 +208,18 @@ only focused being called as art or to grab a random words.
 | **Feature** | **Action** | **Expected Results** | **Final Result** |
 |-------------|------------|----------------------|------------------|
 |             |            |                      |                  |
-| Home page, Linked Icons| Burger Menu/ Desktop menu show relevant info, icons link to poi's| Interactive Elements prompt to trravel to relevant poi's| Home page prompts user to travel to all locations from home page|
-|Quiz| Allows user to test knowledge in relation to fitness| Clear visual indicators for correct/wrong answer, questions cycle and then reset as intended|Quiz Works as intended|
-|Feedback Form| Input fields only submit once form validated| Form validates inputs and sends feedback to me| Form Works as intended|
-
+| Clear Hangman Display|Intuative display and correct/incorrect inputs|Correct errors and valid inputs producing correct result| Works as Intended|
+|Login| Allows user to either log back in or set up username/password|Based on y or n you enter the game as old uer or new |Works as intended|
+<br>
+User Stories: 1, 2, 3, 5, 6, 8, 9
 <br>
 
 | **Feature** | **Action** | **Expected Results** | **Final Result** |
 |-------------|------------|----------------------|------------------|
 |             |            |                      |                  |
 |Restart Prompt|User has y/n option| either restart or exit game back to login| Works as intended|
-
+<br>
+User Stories: 4, 7, 10
 <br>
 
 ## Bugs
@@ -226,9 +227,9 @@ only focused being called as art or to grab a random words.
 | **Bug** | **Fix** | 
 |---------|---------|
 |         |         | 
-|Restart Scores did not work as intended| Created new button instead of changing inner html and defind it, and added functions that reset score on click via event listener|
-|Form not validating|Added correct string in order validate |
-|Initial break of quiz| Corrected elements by id and programmed restart button and function correctly|
+|Intial minor problem with whille loop logic| Issue turned out to be 'if lives < 0' which skipped main body of the game|
+|Hangman art not displaying|Initially graphics were backwards, and implemented a for loop to cycle as incorrect inputs entered|
+|Hidden Word not showing on correct guess| Similar to the while loop in game body, the argument in enumerate was set incorrectly|
 
 ## Deployment
 
@@ -241,35 +242,25 @@ Deployment of site was acheived through these steps:
 ## Future Features
 
 There are a few more feartures that I would like to implement in the future. These Include:
-1.Polished Nav Bar with smooth transition
-2.Timer function to quiz
-3.Randomize the order of how button answers display
-4.A progress Bar to track progress
+1.Implementation of pygame for a nicer interface
+2.A score bar, that gets saved into spreadsheet that returns when existing user enters
 
 ## Credits
-
-### Media
-
-All media created by me using  <a href="https://www.canva.com/">Canva</a>, this includes Icons and backgound images.
-<br>
-Any Icons used found on <a href="https://fontawesome.com/">Font Awesome</a>
-<br>
-Burger Image by <a href="https://www.flaticon.com/free-icon/menu_4254068?term=menu-burger&page=1&position=2&page=1&position=2&related_id=4254068&origin=tag#">Andy Horvath</a>
-<br>
-X Image by <a href="https://www.flaticon.com/free-icon/close_2997911?term=x&page=1&position=5&page=1&position=5&related_id=2997911&origin=tag# ">Fuzzee</a>
     
 ### Code 
 
-1. 404 page code provided by Mo Shami_mentor from code institue
-2. favicon idea provided by Mo Shami_mentor, site used found <a href="https://favicon.io/"> here</a>
-3. Form Validation inspiraation by <a href="https://www.youtube.com/watch?v=fz8bwvn9lA4"> Easy Tutorials</a>
-4. Increment of answers inspired by LoveMaths by Code Institute
-5. Text shadow property taken from <a href="https://www.w3schools.com/cssref/css3_pr_text-shadow.php"> w3schools</a>
-6. Email Validation strings by <a href="https://www.w3resource.com/javascript/form/email-validation.php">W3Schools</a>
-7. Burger Nav bar help from tutor support
-8. Reset button functionality help from tutor support
-9. EmailJs instructions may be found on <a href="https://www.emailjs.com/">EmailJS</a>
-10. Quiz inspiration taken from  <a href="https://www.youtube.com/watch?v=riDzcEQbX6k">Web Dev Simplified</a>
+1. Love sandwiches for providing knowledge on datasheet manipulation
+2. Random word generator found at <a href ="https://randomwordgenerator.com/">on random word generator</a>
+3. Colorama reccomended from masterclasses and manual used <a href = "https://pypi.org/project/colorama/">here</a>
+4. Tutor support in helping my enumerate problem
+5. Hangman inspiration from <a href = "https://www.youtube.com/watch?v=3_CX0aD9Fdg&t=272s">Youtube</a>
+6. Hangman inspiration from <a href = "https://www.youtube.com/watch?v=pFvSb7cb_Us">Youtube</a>
+7. Viktor my mentor for helping me identify and put me on the right track to fixing hangman not showing
+8. gspread manual found <a href = "https://docs.gspread.org/en/latest/">here</a>
+9. Arrow to string functionality  <a href = "https://pencilprogrammer.com/python-arrow-annotation/#:~:text=The%20%2D%3E%20(arrow)%20is,as%20documentation%20for%20the%20function." >here</a>
+10. Hangman Art generator found <a href = "https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c">here</a>
+11. Python main = name found <a href = "https://www.youtube.com/watch?v=l3aRTwWanOE">here</a>
+12. Hangman inspiration from <a href = "https://itsourcecode.com/free-projects/python-projects/hangman-game-in-python-with-source-code/#:~:text=A%20Hangman%20Game%20On%20Python,then%20the%20game%20is%20over.">here</a>
 
 
 ## Acknowledgements
