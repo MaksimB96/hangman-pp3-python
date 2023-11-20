@@ -4,7 +4,7 @@
 ![Mockup image](docs/intro-pic.png)
 ![Mockup image](docs/am-i-responsive.png)
 
-[live web-page](https://pp3-hangman-maksimb96.herokuapp.com/)
+[live web-page](https://pp3-hangman-mb-8b8248a5c08a.herokuapp.com/)
 
 ## Table of contents
 
